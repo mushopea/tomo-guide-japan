@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Mail } from 'lucide-react';
@@ -31,7 +30,7 @@ const Navbar = () => {
               to="/process" 
               className="text-tomodachi-black hover:text-tomodachi-red transition-colors text-sm font-medium"
             >
-              Moving Process
+              Moving Guide
             </Link>
             <Link 
               to="/about" 
@@ -81,7 +80,7 @@ const Navbar = () => {
               className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-tomodachi-red"
               onClick={() => setIsMenuOpen(false)}
             >
-              Moving Process
+              Moving Guide
             </Link>
             <Link
               to="/about"

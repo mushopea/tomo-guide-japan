@@ -1,5 +1,5 @@
-
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -18,9 +18,10 @@ const HeroSection = () => {
             <p className="text-lg text-gray-600 mb-8 max-w-lg">
               We provide comprehensive relocation services for individuals, families, and businesses moving to Japan, along with on-demand support for navigating Japanese language and culture.
             </p>
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <Link to="/services" className="btn-primary">
-                Explore Our Services
+            <div className="flex flex-row space-x-4">
+              <Link to="/services" className="btn-primary flex items-center shadow-md hover:shadow-lg transition-shadow">
+                Our Services
+                <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
               <Link to="/contact" className="btn-outline">
                 Contact Us
