@@ -1,5 +1,5 @@
 
-import { FileText, Briefcase, Home, Map, Globe, Phone } from 'lucide-react';
+import { FileText, Briefcase, Home, Map, Globe, Phone, ArrowRight } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
