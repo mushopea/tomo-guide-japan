@@ -21,7 +21,7 @@ const ServicesHero = () => {
             <div className="w-20 h-1 bg-tomodachi-red mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 mb-8">
               We offer flexible support whether you are a working individual, digital nomad, or company. 
-              Choose multiple options from below or check our comprehensive packages.
+              Choose multiple services from below or check our comprehensive packages.
             </p>
             <div className="flex justify-center">
               <Link to="/contact" className="btn-primary">
