@@ -82,7 +82,7 @@ const stages = [
       {
         id: 7,
         title: 'Cultural Orientation',
-        description: 'Introduction to Japanese customs, etiquette, and daily life practices to help you adapt.',
+        description: 'Help looking for Japanese classes, developing connections with other expats and locals, and assistance learning local customs.',
         icon: <Globe className="w-10 h-10 text-tomodachi-red" />,
         link: '#'
       },
