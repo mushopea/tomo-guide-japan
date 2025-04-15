@@ -20,7 +20,7 @@ const ServicesHero = () => {
             <h1 className="text-4xl font-bold text-tomodachi-black mb-6">Our Services</h1>
             <div className="w-20 h-1 bg-tomodachi-red mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 mb-8">
-              We offer flexible choices whether you are a working individual, digital nomad, or company. 
+              We offer flexible support whether you are a working individual, digital nomad, or company. 
               Choose multiple options from below or check our comprehensive packages.
             </p>
             <div className="flex justify-center">
