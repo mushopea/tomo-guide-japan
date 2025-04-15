@@ -24,9 +24,6 @@ const ServicesHero = () => {
               Choose multiple services from below or check our comprehensive packages.
             </p>
             <div className="flex justify-center">
-              <Link to="/contact" className="btn-primary">
-                Get in Touch
-              </Link>
             </div>
           </div>
         </div>

@@ -99,7 +99,8 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out'
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Be Vietnam Pro', 'sans-serif'],
+        vietnam: ['Be Vietnam Pro', 'sans-serif'],
         heading: ['Poppins', 'sans-serif']
       }
     }

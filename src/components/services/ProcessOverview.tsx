@@ -39,11 +39,11 @@ const ProcessOverview = () => {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory hide-scrollbar">
         {processSteps.map((step) => (
           <Card 
             key={step.id}
-            className="cursor-pointer hover:shadow-md transition-shadow duration-300"
+            className="cursor-pointer hover:shadow-md transition-shadow duration-300 flex-shrink-0 w-[280px] snap-center"
             onClick={() => scrollToSection(step.id)}
           >
             <CardContent className="flex flex-col items-center p-6 text-center">

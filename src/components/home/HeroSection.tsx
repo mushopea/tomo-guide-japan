@@ -31,7 +31,7 @@ const HeroSection = () => {
           <div className="md:w-1/2 flex justify-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80">
               <img
-                src="/lovable-uploads/0971c4fd-6319-4f06-a5ea-28631462c437.png"
+                src="/lovable-uploads/b771d233-9b32-4f70-baf2-6eeb0fff18d5.png"
                 alt="Tomodachi Mascot"
                 className="w-full h-full object-contain"
               />

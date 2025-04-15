@@ -58,15 +58,19 @@ const stages = [
         id: 5,
         title: 'Home Finding',
         description: 'House or apartment hunting based on your preferences and budget, handling all negotiations and paperwork.',
-        icon: <Home className="w-10 h-10 text-tomodachi-red" />,
-        link: '#'
+        icon: <Home className="w-10 h-10 text-tomodachi-red" />
+      },
+      {
+        id: 9,
+        title: 'Residential Card',
+        description: 'Assistance with obtaining your residence card and understanding its importance for daily life in Japan.',
+        icon: <FileText className="w-10 h-10 text-tomodachi-red" />
       },
       {
         id: 6,
         title: 'Bank Account Setup',
         description: 'Guidance through the process of opening local bank accounts and understanding banking procedures.',
-        icon: <Briefcase className="w-10 h-10 text-tomodachi-red" />,
-        link: '#'
+        icon: <Briefcase className="w-10 h-10 text-tomodachi-red" />
       }
     ]
   },
@@ -105,7 +109,7 @@ const RelocationStages = () => {
               id={stage.id}
               className="border rounded-lg mb-4 overflow-hidden"
             >
-              <AccordionTrigger className="text-xl font-bold text-tomodachi-black hover:text-tomodachi-red bg-gray-50 px-6 py-4">
+              <AccordionTrigger className="text-xl font-bold text-tomodachi-black hover:text-tomodachi-red bg-tomodachi-red/10 px-6 py-4">
                 <span className="flex items-center gap-3">
                   <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-tomodachi-red text-white text-sm">
                     {stage.number}
@@ -114,16 +118,12 @@ const RelocationStages = () => {
                 </span>
               </AccordionTrigger>
               <AccordionContent className="px-6 pt-4 pb-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
                   {stage.services.map((service) => (
-                    <div key={service.id} className="bg-white p-6 rounded-lg border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                    <div key={service.id} className="bg-white p-6 rounded-lg hover:shadow-md transition-shadow duration-300">
                       <div className="mb-4">{service.icon}</div>
                       <h3 className="text-xl font-bold text-tomodachi-black mb-3">{service.title}</h3>
-                      <p className="text-gray-600 mb-4">{service.description}</p>
-                      <a href={service.link} className="text-tomodachi-red hover:underline font-medium flex items-center">
-                        Learn more
-                        <ArrowRight className="w-4 h-4 ml-1" />
-                      </a>
+                      <p className="text-gray-600">{service.description}</p>
                     </div>
                   ))}
                 </div>
