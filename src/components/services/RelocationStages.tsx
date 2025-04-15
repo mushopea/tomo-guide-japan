@@ -106,9 +106,9 @@ const RelocationStages = () => {
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="w-full">
+        <Accordion type="multiple" defaultValue={stages.map(stage => stage.id)} className="w-full">
           {stages.map((stage) => (
-            <AccordionItem key={stage.id} value={stage.id}>
+            <AccordionItem key={stage.id} value={stage.id} id={stage.id}>
               <AccordionTrigger className="text-xl font-bold text-tomodachi-black hover:text-tomodachi-red">
                 <span className="flex items-center gap-3">
                   <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-tomodachi-red text-white text-sm">
