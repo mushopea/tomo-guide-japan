@@ -1,4 +1,3 @@
-
 import { FileText, Briefcase, Home, Map, Globe, Phone, ArrowRight } from 'lucide-react';
 import {
   Accordion,
@@ -98,18 +97,15 @@ const RelocationStages = () => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-tomodachi-black">Relocation Process</h2>
-          <div className="w-24 h-1 bg-tomodachi-red mx-auto mt-4 mb-6"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            We offer services for all stages of your relocation journey to Japan.
-          </p>
-        </div>
-
         <Accordion type="multiple" defaultValue={stages.map(stage => stage.id)} className="w-full">
           {stages.map((stage) => (
-            <AccordionItem key={stage.id} value={stage.id} id={stage.id}>
-              <AccordionTrigger className="text-xl font-bold text-tomodachi-black hover:text-tomodachi-red">
+            <AccordionItem 
+              key={stage.id} 
+              value={stage.id} 
+              id={stage.id}
+              className="border rounded-lg mb-4 overflow-hidden"
+            >
+              <AccordionTrigger className="text-xl font-bold text-tomodachi-black hover:text-tomodachi-red bg-gray-50 px-6 py-4">
                 <span className="flex items-center gap-3">
                   <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-tomodachi-red text-white text-sm">
                     {stage.number}
@@ -117,7 +113,7 @@ const RelocationStages = () => {
                   {stage.label}
                 </span>
               </AccordionTrigger>
-              <AccordionContent>
+              <AccordionContent className="px-6 pt-4 pb-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
                   {stage.services.map((service) => (
                     <div key={service.id} className="bg-white p-6 rounded-lg border border-gray-100 hover:shadow-md transition-shadow duration-300">

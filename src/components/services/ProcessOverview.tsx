@@ -56,6 +56,17 @@ const ProcessOverview = () => {
           </Card>
         ))}
       </div>
+      <div className="text-center mt-8">
+        <p className="text-gray-600">
+          Or check out{' '}
+          <button
+            onClick={() => scrollToSection('one-off-support')}
+            className="text-tomodachi-red hover:underline font-medium"
+          >
+            one-off task support
+          </button>
+        </p>
+      </div>
     </div>
   );
 };

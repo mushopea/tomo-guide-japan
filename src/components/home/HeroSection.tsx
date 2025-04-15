@@ -29,21 +29,12 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="md:w-1/2 flex justify-center">
-            <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 bg-tomodachi-light-gray rounded-full flex items-center justify-center overflow-hidden">
-                <svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="120" cy="100" r="60" fill="white" stroke="black" strokeWidth="2"/>
-                  <path d="M80 140C90 160 110 170 120 170C130 170 150 160 160 140" stroke="black" strokeWidth="2" strokeLinecap="round"/>
-                  <circle cx="90" cy="90" r="8" fill="black"/>
-                  <circle cx="150" cy="90" r="8" fill="black"/>
-                  <path d="M120 180 L120 220" stroke="black" strokeWidth="2"/>
-                  <path d="M90 200 L150 200" stroke="black" strokeWidth="2"/>
-                  <path d="M60 120 L30 150" stroke="black" strokeWidth="2"/>
-                  <path d="M180 120 L210 150" stroke="black" strokeWidth="2"/>
-                  <path d="M50 90 L20 70" stroke="black" strokeWidth="2"/>
-                  <path d="M190 90 L220 70" stroke="black" strokeWidth="2"/>
-                </svg>
-              </div>
+            <div className="relative w-64 h-64 md:w-80 md:h-80">
+              <img
+                src="/lovable-uploads/0971c4fd-6319-4f06-a5ea-28631462c437.png"
+                alt="Tomodachi Mascot"
+                className="w-full h-full object-contain"
+              />
             </div>
           </div>
         </div>

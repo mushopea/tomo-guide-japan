@@ -2,8 +2,9 @@
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import ServicesHero from '../components/services/ServicesHero';
-import RelocationStages from '../components/services/RelocationStages';
 import ProcessOverview from '../components/services/ProcessOverview';
+import RelocationStages from '../components/services/RelocationStages';
+import OneOffSupport from '../components/services/OneOffSupport';
 
 const Services = () => {
   return (
@@ -13,6 +14,7 @@ const Services = () => {
         <ServicesHero />
         <ProcessOverview />
         <RelocationStages />
+        <OneOffSupport />
       </main>
       <Footer />
     </div>
