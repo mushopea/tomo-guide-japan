@@ -4,32 +4,27 @@ import { Heart, Layers, Users } from 'lucide-react';
 const values = [
   {
     id: 1,
-    title: "Personalized Service",
-    description: "We understand that every relocation journey is unique. Our approach is tailored to your specific needs, preferences, and circumstances.",
+    title: "Respect",
     icon: <Layers className="w-12 h-12 text-tomodachi-red" />
   },
   {
     id: 2,
     title: "Friendship",
-    description: "True to our name, we build genuine connections with our clients, offering emotional support alongside practical assistance.",
     icon: <Heart className="w-12 h-12 text-tomodachi-red" />
   },
   {
     id: 3,
-    title: "Support",
-    description: "We're committed to being there for you every step of the way, from pre-departure planning to long after you've settled in.",
+    title: "Trust",
     icon: <Users className="w-12 h-12 text-tomodachi-red" />
   },
   {
     id: 4,
-    title: "ponko",
-    description: "We're committed to being there for you every step of the way, from pre-departure planning to long after you've settled in.",
+    title: "Reliability",
     icon: <Users className="w-12 h-12 text-tomodachi-red" />
   },
   {
     id: 5,
-    title: "ponko2",
-    description: "We're committed to being there for you every step of the way, from pre-departure planning to long after you've settled in.",
+    title: "Communication",
     icon: <Users className="w-12 h-12 text-tomodachi-red" />
   }
 ];
