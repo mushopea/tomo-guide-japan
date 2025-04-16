@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 import { Briefcase, FileText, Home, Map, CreditCard, Globe, School, Users } from 'lucide-react';
 
 const steps = [
-  {
+   {
     id: 1,
-    title: "Determine Your Visa Requirements",
-    description: "Depending on your purpose (work, study, family), we'll help identify the right visa category and requirements for your situation.",
+    title: "Pre-Departure Preparation",
+    description: "Creating a Japanese Name, Obtaining an International Credit Card, applying for an international driver's license...",
     icon: <FileText className="w-12 h-12 text-tomodachi-red" />,
     link: "#visa-support"
   },
   {
     id: 2,
-    title: "Prepare Essential Documents",
-    description: "Gather and translate necessary documents including birth certificates, marriage certificates, academic records, and employment history.",
-    icon: <Briefcase className="w-12 h-12 text-tomodachi-red" />,
-    link: "#document-preparation"
+    title: "Determine Your Visa Requirements",
+    description: "Depending on your purpose (work, study, family), we'll help identify the right visa category and requirements for your situation.",
+    icon: <FileText className="w-12 h-12 text-tomodachi-red" />,
+    link: "#visa-support"
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const steps = [
   },
   {
     id: 4,
-    title: "Register with Local Government",
+    title: "Obtain Residence Card and File with City Hall",
     description: "Complete mandatory registration with your local ward or city office within 14 days of finding permanent housing.",
     icon: <Map className="w-12 h-12 text-tomodachi-red" />,
     link: "#local-registration"
@@ -34,7 +34,7 @@ const steps = [
   {
     id: 5,
     title: "Set Up Banking & Finances",
-    description: "Open a Japanese bank account, set up utilities payments, and understand local financial systems.",
+    description: "Open a Japanese bank account, obtain a Japanese phone number, set up utilities payments, and apply for a Japanese credit card.",
     icon: <CreditCard className="w-12 h-12 text-tomodachi-red" />,
     link: "#financial-setup"
   },
@@ -48,7 +48,7 @@ const steps = [
   {
     id: 7,
     title: "Learn Basic Japanese",
-    description: "Start with essential phrases and cultural norms to make daily interactions easier and more enjoyable.",
+    description: "Help looking for trusted Japanese language instructors and schools.",
     icon: <School className="w-12 h-12 text-tomodachi-red" />,
     link: "#language-basics"
   },
