@@ -19,6 +19,18 @@ const values = [
     title: "Support",
     description: "We're committed to being there for you every step of the way, from pre-departure planning to long after you've settled in.",
     icon: <Users className="w-12 h-12 text-tomodachi-red" />
+  },
+  {
+    id: 4,
+    title: "ponko",
+    description: "We're committed to being there for you every step of the way, from pre-departure planning to long after you've settled in.",
+    icon: <Users className="w-12 h-12 text-tomodachi-red" />
+  },
+  {
+    id: 5,
+    title: "ponko2",
+    description: "We're committed to being there for you every step of the way, from pre-departure planning to long after you've settled in.",
+    icon: <Users className="w-12 h-12 text-tomodachi-red" />
   }
 ];
 
