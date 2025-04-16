@@ -8,13 +8,13 @@ const OurStory = () => {
             <div className="md:w-1/2">
               <h2 className="section-title mb-8">Our Story</h2>
               <p className="text-gray-600 mb-4">
-                Tomodachi was founded in 2015 by a team of expats who had experienced firsthand the challenges of relocating to Japan. After navigating the complexities of visas, housing, language barriers, and cultural adjustments, they recognized a need for comprehensive support that went beyond what traditional relocation services offered.
+               My name is Trent. I am the founder of Tomodachi. In 2022, I moved to Japan all by myself and I made lots of mistakes even with the ability to speak fluent Japanese. There plenty of things I had wished a friend had told me about before moving here. Tomodachi is here to help save you from making the same mistakes I did when I moved to Japan.
               </p>
               <p className="text-gray-600 mb-4">
-                Our founders envisioned a service that would not only handle the practical aspects of moving but would also provide the emotional support and cultural guidance needed to truly feel at home in Japan.
+                Witnessing the growing interest in Japan inspires us. We recognize that while many desire to build a life here, the path forward isn't always clear. Tomodachi bridges that gap, offering expert services to simplify your relocation journey.
               </p>
               <p className="text-gray-600">
-                Today, Tomodachi has helped thousands of individuals, families, and businesses successfully transition to life in Japan with our personalized, compassionate approach to relocation services.
+
               </p>
             </div>
             <div className="md:w-1/2">
