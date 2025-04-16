@@ -5,7 +5,7 @@ import { Briefcase, FileText, Home, Map, CreditCard, Globe, School, Users } from
 const steps = [
    {
     id: 1,
-    title: "Pre-Departure Preparation",
+    title: "Prepare for Departure",
     description: "Creating a Japanese Name, Obtaining an International Credit Card, applying for an international driver's license...",
     icon: <FileText className="w-12 h-12 text-tomodachi-red" />,
     link: "#visa-support"
