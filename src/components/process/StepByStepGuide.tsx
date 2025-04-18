@@ -274,79 +274,89 @@ const StepByStepGuide = () => {
           <div className="mb-16 p-6 border border-gray-200 rounded-lg bg-gray-50">
             <h3 className="text-xl font-bold mb-4 text-tomodachi-black">Table of Contents</h3>
             
-            <div className="mb-6">
-              <h4 className="font-bold text-gray-700 mb-2">BEFORE ARRIVAL</h4>
-              <ul className="space-y-2">
-                {movingGuideSteps.filter(step => step.category === "BEFORE ARRIVAL").map((step, index) => (
-                  <li key={index} className="flex items-start">
-                    <span className="mr-2 font-medium">{index + 1}.</span>
-                    <button 
-                      onClick={() => scrollToSection(step.id)}
-                      className="text-tomodachi-red hover:underline text-left"
-                    >
-                      {step.title}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-bold text-gray-700 mb-2">AFTER ARRIVAL</h4>
-              <ul className="space-y-2">
-                {movingGuideSteps.filter(step => step.category === "AFTER ARRIVAL").map((step, index) => (
-                  <li key={index} className="flex items-start">
-                    <span className="mr-2 font-medium">{index + 5}.</span>
-                    <button 
-                      onClick={() => scrollToSection(step.id)}
-                      className="text-tomodachi-red hover:underline text-left"
-                    >
-                      {step.title}
-                    </button>
-                  </li>
-                ))}
-              </ul>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="font-bold text-gray-700 mb-2">BEFORE ARRIVAL</h4>
+                <ul className="space-y-2">
+                  {movingGuideSteps.filter(step => step.category === "BEFORE ARRIVAL").map((step, index) => (
+                    <li key={index} className="flex items-start">
+                      <span className="mr-2 font-medium">{index + 1}.</span>
+                      <button 
+                        onClick={() => scrollToSection(step.id)}
+                        className="text-tomodachi-red hover:underline text-left"
+                      >
+                        {step.title}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-bold text-gray-700 mb-2">AFTER ARRIVAL</h4>
+                <ul className="space-y-2">
+                  {movingGuideSteps.filter(step => step.category === "AFTER ARRIVAL").map((step, index) => (
+                    <li key={index} className="flex items-start">
+                      <span className="mr-2 font-medium">{index + 5}.</span>
+                      <button 
+                        onClick={() => scrollToSection(step.id)}
+                        className="text-tomodachi-red hover:underline text-left"
+                      >
+                        {step.title}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
           
           {/* Guide Content */}
           <div className="space-y-16">
-            <h2 className="text-2xl font-bold text-tomodachi-black mb-8">Tomodachi Relocation Guide: Japan Edition</h2>
-            
             {/* Before Arrival Section */}
             <div>
               <h3 className="text-xl font-bold text-tomodachi-black mb-8 pb-2 border-b border-gray-200">BEFORE YOU ARRIVE IN JAPAN</h3>
-              {movingGuideSteps.filter(step => step.category === "BEFORE ARRIVAL").map((step, index) => (
-                <div key={index} id={step.id} className="mb-12">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-tomodachi-red text-white flex items-center justify-center font-bold text-lg">
-                      {index + 1}
-                    </div>
-                    <div className="flex-grow">
-                      <h4 className="text-xl font-bold text-tomodachi-black mb-4">{step.title}</h4>
-                      {step.content}
+              <div className="relative">
+                <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+                {movingGuideSteps.filter(step => step.category === "BEFORE ARRIVAL").map((step, index) => (
+                  <div key={index} id={step.id} className="mb-12 relative">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-tomodachi-red text-white flex items-center justify-center font-bold text-lg z-10 relative bg-white border-4 border-white">
+                        {index + 1}
+                      </div>
+                      <div className="flex-grow">
+                        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                          <h4 className="text-xl font-bold text-tomodachi-black mb-4">{step.title}</h4>
+                          {step.content}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
             
             {/* After Arrival Section */}
             <div>
               <h3 className="text-xl font-bold text-tomodachi-black mb-8 pb-2 border-b border-gray-200">WHEN YOU ARRIVE IN JAPAN</h3>
-              {movingGuideSteps.filter(step => step.category === "AFTER ARRIVAL").map((step, index) => (
-                <div key={index} id={step.id} className="mb-12">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-tomodachi-red text-white flex items-center justify-center font-bold text-lg">
-                      {index + 5}
-                    </div>
-                    <div className="flex-grow">
-                      <h4 className="text-xl font-bold text-tomodachi-black mb-4">{step.title}</h4>
-                      {step.content}
+              <div className="relative">
+                <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+                {movingGuideSteps.filter(step => step.category === "AFTER ARRIVAL").map((step, index) => (
+                  <div key={index} id={step.id} className="mb-12 relative">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-tomodachi-red text-white flex items-center justify-center font-bold text-lg z-10 relative bg-white border-4 border-white">
+                        {index + 5}
+                      </div>
+                      <div className="flex-grow">
+                        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                          <h4 className="text-xl font-bold text-tomodachi-black mb-4">{step.title}</h4>
+                          {step.content}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
           
@@ -357,14 +367,13 @@ const StepByStepGuide = () => {
               Stay organized with our comprehensive checklist for your move to Japan. Track your progress and ensure nothing is forgotten.
             </p>
             <div className="text-center">
-              <a 
-                href="#" 
+              <button 
                 className="btn-primary inline-flex items-center"
                 onClick={(e) => e.preventDefault()}
               >
                 <Check className="mr-2 h-5 w-5" />
                 Download Printable PDF
-              </a>
+              </button>
             </div>
           </div>
         </div>

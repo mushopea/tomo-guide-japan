@@ -9,7 +9,7 @@ const TomodachiLogo: React.FC<TomodachiLogoProps> = ({ className = "" }) => {
   return (
     <div className={`flex items-center ${className}`}>
       <img 
-        src="/lovable-uploads/faac7eae-97b2-4400-9ba3-24055164026f.png" 
+        src="/lovable-uploads/cad37392-2734-4af8-a8d5-f1b19bf27fc3.png" 
         alt="Tomodachi Logo" 
         className="h-8 w-8 mr-2"
       />

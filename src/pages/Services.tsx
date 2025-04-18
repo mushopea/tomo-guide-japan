@@ -2,7 +2,6 @@
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import ServicesHero from '../components/services/ServicesHero';
-import ProcessOverview from '../components/services/ProcessOverview';
 import RelocationStages from '../components/services/RelocationStages';
 import OneOffSupport from '../components/services/OneOffSupport';
 
@@ -12,7 +11,6 @@ const Services = () => {
       <Navbar />
       <main className="flex-grow">
         <ServicesHero />
-        <ProcessOverview />
         <RelocationStages />
         <OneOffSupport />
       </main>

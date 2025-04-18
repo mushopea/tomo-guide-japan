@@ -15,22 +15,22 @@ const serviceCards = [
     title: 'One-off support',
     description: 'Specific tasks like phone plans, city hall visits, and more.',
     chips: ['Affordable', 'No Packages'],
-    link: '/services'
+    link: '/services#one-off-support'
   }
 ];
 
 const ServiceCategories = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-tomodachi-red bg-opacity-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-tomodachi-black">Our Services</h2>
+          <h2 className="text-3xl font-bold text-tomodachi-black">Services</h2>
           <div className="w-24 h-1 bg-tomodachi-red mx-auto mt-4 mb-6"></div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {serviceCards.map((card) => (
-            <div key={card.id} className="bg-white p-6 rounded-lg border border-gray-100 hover:shadow-md transition-shadow duration-300">
+            <Link to={card.link} key={card.id} className="bg-white p-6 rounded-lg border border-gray-100 hover:shadow-md transition-shadow duration-300">
               <div className="mb-4 bg-gray-200 w-full h-48 rounded-lg"></div>
               <h3 className="text-xl font-bold text-tomodachi-black mb-2">{card.title}</h3>
               <p className="text-gray-600 mb-4">{card.description}</p>
@@ -41,7 +41,7 @@ const ServiceCategories = () => {
                   </span>
                 ))}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         
