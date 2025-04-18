@@ -21,8 +21,8 @@ const stages = [
       },
       {
         id: 2,
-        title: 'Moving Preparation',
-        description: 'Planning and consultations to prepare for your move, including housing preferences and requirements.',
+       title: 'Home Finding',
+        description: 'House or apartment hunting based on your preferences and budget, handling all negotiations and paperwork.',
         icon: <Home className="w-10 h-10 text-tomodachi-red" />,
         link: '#'
       }
@@ -34,16 +34,9 @@ const stages = [
     number: 2,
     services: [
       {
-        id: 3,
-        title: 'Airport Pickup',
-        description: 'Personal greeting at the airport and transportation to your temporary or permanent accommodation.',
-        icon: <Map className="w-10 h-10 text-tomodachi-red" />,
-        link: '#'
-      },
-      {
         id: 4,
         title: 'Phone & Internet Setup',
-        description: 'Assistance with purchasing SIM cards, setting up phone service, and arranging internet connectivity.',
+        description: 'Assistance with purchasing SIM cards and setting up phone service.',
         icon: <Phone className="w-10 h-10 text-tomodachi-red" />,
         link: '#'
       }
@@ -56,14 +49,14 @@ const stages = [
     services: [
       {
         id: 5,
-        title: 'Home Finding',
-        description: 'House or apartment hunting based on your preferences and budget, handling all negotiations and paperwork.',
+        title: 'Setting Up Utilities',
+        description: 'Setting up water, gas, electricity, and internet.',
         icon: <Home className="w-10 h-10 text-tomodachi-red" />
       },
       {
         id: 9,
         title: 'Residential Card',
-        description: 'Assistance with obtaining your residence card and understanding its importance for daily life in Japan.',
+        description: 'Assistance with obtaining your residence card and setting up national insurance at city hall.',
         icon: <FileText className="w-10 h-10 text-tomodachi-red" />
       },
       {
