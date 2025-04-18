@@ -22,7 +22,7 @@ const stages = [
       {
         id: 2,
        title: 'Home Finding',
-        description: 'House or apartment hunting based on your preferences and budget, handling all negotiations and paperwork.',
+        description: 'House or apartment hunting based on your preferences and budget, handling all negotiations and paperwork. If applicable, we will help family pets make the trip too!',
         icon: <Home className="w-10 h-10 text-tomodachi-red" />,
         link: '#'
       }
@@ -35,7 +35,7 @@ const stages = [
     services: [
       {
         id: 4,
-        title: 'Phone & Internet Setup',
+        title: 'Phone Setup',
         description: 'Assistance with purchasing SIM cards and setting up phone service.',
         icon: <Phone className="w-10 h-10 text-tomodachi-red" />,
         link: '#'
