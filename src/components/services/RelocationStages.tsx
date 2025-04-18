@@ -35,7 +35,7 @@ const stages = [
     services: [
       {
         id: 4,
-        title: 'Phone Setup',
+        title: 'Phone Number',
         description: 'Assistance with purchasing SIM cards and setting up phone service.',
         icon: <Phone className="w-10 h-10 text-tomodachi-red" />,
         link: '#'
