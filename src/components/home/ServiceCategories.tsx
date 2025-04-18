@@ -20,7 +20,7 @@ const services = [
   {
     id: 3,
     title: 'Language & Culture',
-    description: 'Translation services, language lessons, and cultural orientation to help you adapt.',
+    description: 'Translation services, help finding Japanese lessons, and cultural orientation to help you adapt.',
     icon: <Globe className="w-8 h-8 text-tomodachi-red" />,
     link: '/services'
   },
