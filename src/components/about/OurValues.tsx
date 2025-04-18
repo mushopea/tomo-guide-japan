@@ -1,31 +1,36 @@
 
-import { Heart, Layers, Users } from 'lucide-react';
+import { Heart, Layers, Users, ShieldCheck, MessageCircle } from 'lucide-react';
 
 const values = [
   {
     id: 1,
     title: "Respect",
-    icon: <Layers className="w-12 h-12 text-tomodachi-red" />
+    icon: <Layers className="w-12 h-12 text-tomodachi-red" />,
+    description: "We honor and value individuals from all backgrounds and cultures."
   },
   {
     id: 2,
     title: "Friendship",
-    icon: <Heart className="w-12 h-12 text-tomodachi-red" />
+    icon: <Heart className="w-12 h-12 text-tomodachi-red" />,
+    description: "We build meaningful connections with our clients based on trust and care."
   },
   {
     id: 3,
     title: "Trust",
-    icon: <Users className="w-12 h-12 text-tomodachi-red" />
+    icon: <Users className="w-12 h-12 text-tomodachi-red" />,
+    description: "We are committed to maintaining confidentiality and reliability in every interaction."
   },
   {
     id: 4,
     title: "Reliability",
-    icon: <Users className="w-12 h-12 text-tomodachi-red" />
+    icon: <ShieldCheck className="w-12 h-12 text-tomodachi-red" />,
+    description: "We deliver on our promises and are there when you need us."
   },
   {
     id: 5,
     title: "Communication",
-    icon: <Users className="w-12 h-12 text-tomodachi-red" />
+    icon: <MessageCircle className="w-12 h-12 text-tomodachi-red" />,
+    description: "We believe in clear, open, and consistent communication."
   }
 ];
 
