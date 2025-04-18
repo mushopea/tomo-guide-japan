@@ -28,7 +28,7 @@ const Tomopon = () => {
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-16">
           <div className="md:w-1/3">
             <img
-              src="/lovable-uploads/faac7eae-97b2-4400-9ba3-24055164026f.png"
+              src="/lovable-uploads/c8e585f7-90f1-4a7a-bcc1-ae0d880ac032.png"
               alt="Tomopon Mascot"
               className="w-64 h-64 object-contain mx-auto"
             />

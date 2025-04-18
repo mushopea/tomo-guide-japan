@@ -13,26 +13,15 @@ const OurStory = () => {
               <p className="text-gray-600 mb-4">
                 Witnessing the growing interest in Japan inspires us. We recognize that while many desire to build a life here, the path forward isn't always clear. Tomodachi bridges that gap, offering expert services to simplify your relocation journey.
               </p>
-              <p className="text-gray-600">
-
-              </p>
             </div>
             <div className="md:w-1/2">
               <div className="bg-tomodachi-light-gray p-8 rounded-lg">
                 <div className="w-full h-64 flex items-center justify-center">
-                  <svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="20" y="60" width="160" height="100" rx="5" fill="white" stroke="black" strokeWidth="2"/>
-                    <circle cx="180" cy="110" r="40" fill="white" stroke="black" strokeWidth="2"/>
-                    <circle cx="170" cy="100" r="3" fill="black"/>
-                    <circle cx="190" cy="100" r="3" fill="black"/>
-                    <path d="M170 120C175 125 185 125 190 120" stroke="black" strokeWidth="2" strokeLinecap="round"/>
-                    <rect x="40" y="80" width="50" height="30" rx="2" fill="white" stroke="black" strokeWidth="2"/>
-                    <path d="M50 95 H80" stroke="black" strokeWidth="2"/>
-                    <rect x="40" y="120" width="100" height="10" rx="2" fill="white" stroke="black" strokeWidth="2"/>
-                    <rect x="40" y="140" width="80" height="10" rx="2" fill="white" stroke="black" strokeWidth="2"/>
-                    <path d="M180 150 L180 180" stroke="black" strokeWidth="2"/>
-                    <path d="M160 180 L200 180" stroke="black" strokeWidth="2"/>
-                  </svg>
+                  <img 
+                    src="/lovable-uploads/c3e7aa9a-4a8c-4e9b-921a-b0a6e1e3e387.png" 
+                    alt="About Tomodachi" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               </div>
             </div>
