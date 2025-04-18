@@ -9,12 +9,12 @@ const TomodachiLogo: React.FC<TomodachiLogoProps> = ({ className = "" }) => {
   return (
     <div className={`flex items-center ${className}`}>
       <img 
-        src="/lovable-uploads/b771d233-9b32-4f70-baf2-6eeb0fff18d5.png" 
+        src="/lovable-uploads/faac7eae-97b2-4400-9ba3-24055164026f.png" 
         alt="Tomodachi Logo" 
         className="h-8 w-8 mr-2"
       />
       <span className="font-heading font-bold text-lg text-tomodachi-black">
-        T<span className="text-tomodachi-red">O</span>MODACHI
+        T<span className="inline-block w-4 h-4 bg-tomodachi-red rounded-full text-center">O</span>MODACHI
       </span>
     </div>
   );

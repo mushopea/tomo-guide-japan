@@ -1,14 +1,21 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Mail } from 'lucide-react';
 import TomodachiLogo from '../common/TomodachiLogo';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  // Scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <header className="border-b border-gray-100 bg-white sticky top-0 z-50">
@@ -36,7 +43,7 @@ const Navbar = () => {
               to="/about" 
               className="text-tomodachi-black hover:text-tomodachi-red transition-colors text-sm font-medium"
             >
-              About Us
+              About
             </Link>
             <Link 
               to="/contact" 
@@ -48,7 +55,10 @@ const Navbar = () => {
           </nav>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-4">
+            <Link to="/contact" className="text-tomodachi-black hover:text-tomodachi-red">
+              <Mail size={20} />
+            </Link>
             <button
               type="button"
               className="text-gray-500 hover:text-gray-600 focus:outline-none"
@@ -87,7 +97,7 @@ const Navbar = () => {
               className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-tomodachi-red"
               onClick={() => setIsMenuOpen(false)}
             >
-              About Us
+              About
             </Link>
             <Link
               to="/contact"
