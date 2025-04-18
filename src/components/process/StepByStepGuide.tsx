@@ -321,7 +321,7 @@ const StepByStepGuide = () => {
                 {movingGuideSteps.filter(step => step.category === "BEFORE ARRIVAL").map((step, index) => (
                   <div key={index} id={step.id} className="mb-12 relative">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-tomodachi-red text-white flex items-center justify-center font-bold text-lg z-10 relative bg-white border-4 border-white">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-tomodachi-red text-white flex items-center justify-center font-bold text-lg z-10 relative  border-4 ">
                         {index + 1}
                       </div>
                       <div className="flex-grow">
@@ -344,7 +344,7 @@ const StepByStepGuide = () => {
                 {movingGuideSteps.filter(step => step.category === "AFTER ARRIVAL").map((step, index) => (
                   <div key={index} id={step.id} className="mb-12 relative">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-tomodachi-red text-white flex items-center justify-center font-bold text-lg z-10 relative bg-white border-4 border-white">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-tomodachi-red text-white flex items-center justify-center font-bold text-lg z-10 relative  border-4 ">
                         {index + 5}
                       </div>
                       <div className="flex-grow">
