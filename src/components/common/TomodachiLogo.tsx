@@ -14,7 +14,7 @@ const TomodachiLogo: React.FC<TomodachiLogoProps> = ({ className = "" }) => {
         className="h-8 w-8 mr-2"
       />
       <span className="font-heading font-bold text-lg text-tomodachi-black">
-        T<span className="inline-block w-4 h-4 bg-tomodachi-red rounded-full text-center text-white"> </span>MODACHI
+        T<span className="inline-block w-4 h-4 bg-tomodachi-red rounded-full text-center text-white">◍</span>MODACHI
       </span>
     </div>
   );
