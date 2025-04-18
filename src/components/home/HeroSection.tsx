@@ -12,7 +12,6 @@ const HeroSection = () => {
             </h1>
             <div className="flex space-x-2 mb-6">
               <span className="bg-tomodachi-light-gray text-tomodachi-black px-3 py-1 rounded-full text-sm font-medium">Relocation</span>
-              <span className="bg-tomodachi-light-gray text-tomodachi-black px-3 py-1 rounded-full text-sm font-medium">Language</span>
               <span className="bg-tomodachi-light-gray text-tomodachi-black px-3 py-1 rounded-full text-sm font-medium">Translation</span>
             </div>
             <p className="text-lg text-gray-600 mb-8 max-w-lg">
