@@ -5,21 +5,21 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    content: "Tomodachi made our move to Tokyo so much easier than we expected. Their help finding an apartment that accepted our dog was invaluable!",
-    name: "Emma Wilson",
+    content: "I was trying to sign up for a marathon, but everything was in Japanese. I was unsure about the delivery of my shirt and bib for the event, and I found immediate help and assistance. Best service and kindness.",
+    name: "Giovanni C",
     city: "Tokyo"
   },
   {
     id: 2,
-    content: "I was struggling with city hall paperwork until Tomodachi stepped in. They saved me hours of confusion and helped me get everything sorted quickly.",
-    name: "Alex Johnson",
-    city: "Osaka"
+    content: ""I was feeling quite anxious about my psychiatrist appointment, especially with the language barrier. Thankfully, Trent stepped in and took care of the booking process, which was a huge relief. Having them there for in-person translation during the appointment was incredibly helpful and made me feel so much more comfortable and understood. I highly recommend their thoughtful and efficient support!",
+    name: "Xinni C",
+    city: "Tokyo"
   },
   {
     id: 3,
     content: "When our appliances arrived and we couldn't read the Japanese manuals, Tomodachi came over the same day to help us set everything up and explain how to use them.",
-    name: "Maria Rodriguez",
-    city: "Kyoto"
+    name: "Maria R",
+    city: "Tokyo"
   }
 ];
 
