@@ -12,7 +12,6 @@ const Services = () => {
       <main className="flex-grow">
         <ServicesHero />
         <RelocationStages />
-        <OneOffSupport />
       </main>
       <Footer />
     </div>
