@@ -1,18 +1,19 @@
 
+import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const hobbies = [
   {
     title: "Admiring flowers at Ueno park",
-    image: "/lovable-uploads/faac7eae-97b2-4400-9ba3-24055164026f.png"
+    image: "/lovable-uploads/5e044eb2-7316-4775-98f2-ae74449745fc.png"
   },
   {
     title: "People-watching in Shibuya",
-    image: "/lovable-uploads/a1653a6e-d8f9-4916-a157-95d470c21d15.png"
+    image: "/lovable-uploads/53c78cb1-28c7-40f3-b18b-fbe1be288a86.png"
   },
   {
     title: "Snacking in Asakusa",
-    image: "/lovable-uploads/988429f1-297c-4b90-ba39-ba12b0537dcb.png"
+    image: "/lovable-uploads/017afee9-e640-422e-b58a-c8aec784f116.png"
   }
 ];
 
