@@ -78,10 +78,6 @@ const ContactForm = () => {
                   <div className="flex-shrink-0 mt-1">
                     <Phone size={20} className="text-tomodachi-red" />
                   </div>
-                  <div className="ml-4">
-                    <h4 className="text-lg font-semibold text-tomodachi-black">Call Us</h4>
-                    <a href="tel:+81-3-1234-5678" className="text-gray-600 hover:text-tomodachi-red">
-                      +81-3-1234-5678
                     </a>
                   </div>
                 </div>
