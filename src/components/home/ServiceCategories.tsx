@@ -50,7 +50,7 @@ const ServiceCategories = () => {
           ))}
         </div>
       </div>
-    </section><br><P><BR></P>
+    </section>
   );
 };
 
