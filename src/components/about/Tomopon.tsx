@@ -4,15 +4,15 @@ import { Card, CardContent } from "@/components/ui/card";
 const hobbies = [
   {
     title: "Admiring flowers at Ueno park",
-    image: "bg-gray-200" // Placeholder for image
+    image: "/lovable-uploads/988429f1-297c-4b90-ba39-ba12b0537dcb.png"
   },
   {
     title: "People-watching in Shibuya",
-    image: "bg-gray-200" // Placeholder for image
+    image: "/lovable-uploads/e415176f-e4fb-4327-9afc-d0db33b3e565.png"
   },
   {
     title: "Snacking in Asakusa",
-    image: "bg-gray-200" // Placeholder for image
+    image: "/lovable-uploads/a1653a6e-d8f9-4916-a157-95d470c21d15.png"
   }
 ];
 

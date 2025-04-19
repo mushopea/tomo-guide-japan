@@ -7,11 +7,11 @@ const HeroSection = () => {
     <section className="bg-tomodachi-red bg-opacity-10 py-8 md:py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-8 md:mb-0">
+          <div className="md:w-1/2 w-2/3 mb-8 md:mb-0">
             <span className="text-gray-500 text-sm mb-2 block">
-              <strong className="text-[#ea384c]">ともだち</strong>
+              <strong className="text-[#ea384c] font-bold">ともだち</strong>
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-tomodachi-black mb-4">
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight text-tomodachi-black mb-4">
               Your Japan relocation buddy
             </h1>
             <p className="text-lg text-gray-600 mb-8 max-w-lg">
@@ -27,8 +27,8 @@ const HeroSection = () => {
               </Link>
             </div>
           </div>
-          <div className="md:w-1/2 md:flex justify-center hidden">
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
+          <div className="w-1/3 md:w-1/2 flex justify-center">
+            <div className="relative w-full h-48 md:w-80 md:h-80">
               <img
                 src="/lovable-uploads/c8e585f7-90f1-4a7a-bcc1-ae0d880ac032.png"
                 alt="Tomodachi Mascot"

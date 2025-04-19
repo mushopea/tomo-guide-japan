@@ -1,4 +1,3 @@
-
 const OurStory = () => {
   return (
     <section className="py-16 bg-white">
@@ -6,7 +5,7 @@ const OurStory = () => {
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="md:w-1/2">
-              <h2 className="section-title mb-8">Our Story</h2>
+              <h2 className="section-title mb-8">About us</h2>
               <p className="text-gray-600 mb-4">
                My name is Trent. I am the founder of Tomodachi. In 2022, I moved to Japan all by myself and I made lots of mistakes even with the ability to speak fluent Japanese. There plenty of things I had wished a friend had told me about before moving here. Tomodachi is here to help save you from making the same mistakes I did when I moved to Japan.
               </p>

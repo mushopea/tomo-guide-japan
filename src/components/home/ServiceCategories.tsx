@@ -7,6 +7,7 @@ const serviceCards = [
     id: 1,
     title: 'Relocation Services',
     description: 'From visa to housing and bank setup, we\'ve got you covered.',
+    image: 'https://images.unsplash.com/photo-1551322120-c697cf88fbdc?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     chips: ['Full support', 'Customizable', 'Free Consult'],
     link: '/services'
   },
@@ -14,6 +15,7 @@ const serviceCards = [
     id: 2,
     title: 'One-off support',
     description: 'Specific tasks like phone plans, city hall visits, and more.',
+    image: '/lovable-uploads/e415176f-e4fb-4327-9afc-d0db33b3e565.png',
     chips: ['Affordable', 'No Packages'],
     link: '/services#one-off-support'
   }
@@ -21,7 +23,7 @@ const serviceCards = [
 
 const ServiceCategories = () => {
   return (
-    <section className="py-16 bg-tomodachi-red bg-opacity-10">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-tomodachi-black">Services</h2>
@@ -30,11 +32,17 @@ const ServiceCategories = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {serviceCards.map((card) => (
-            <Link to={card.link} key={card.id} className="bg-white p-6 rounded-lg border border-gray-100 hover:shadow-md transition-shadow duration-300">
-              <div className="mb-4 bg-gray-200 w-full h-48 rounded-lg"></div>
+            <Link to={card.link} key={card.id} className="bg-white p-6 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
+              <div className="mb-4 w-full h-48 rounded-lg overflow-hidden">
+                <img 
+                  src={card.image} 
+                  alt={card.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <h3 className="text-xl font-bold text-tomodachi-black mb-2">{card.title}</h3>
               <p className="text-gray-600 mb-4">{card.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-4 min-h-[32px]">
                 {card.chips.map((chip, index) => (
                   <span key={index} className="inline-block px-3 py-1 text-sm font-medium text-tomodachi-black bg-white border border-tomodachi-red rounded-full">
                     {chip}
@@ -43,13 +51,6 @@ const ServiceCategories = () => {
               </div>
             </Link>
           ))}
-        </div>
-        
-        <div className="mt-12 text-center">
-          <Link to="/services" className="btn-primary inline-flex items-center">
-            See All Services
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Link>
         </div>
       </div>
     </section>

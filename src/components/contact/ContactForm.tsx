@@ -1,22 +1,29 @@
-
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Send } from 'lucide-react';
 import { toast } from 'sonner';
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    supportType: 'relocation',
     subject: '',
-    message: '',
-    service: 'general'
+    message: ''
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
       ...prevState,
       [name]: value
+    }));
+  };
+
+  const handleRadioChange = (value: string) => {
+    setFormData(prevState => ({
+      ...prevState,
+      supportType: value
     }));
   };
 
@@ -33,9 +40,9 @@ const ContactForm = () => {
     setFormData({
       name: '',
       email: '',
+      supportType: 'relocation',
       subject: '',
-      message: '',
-      service: 'general'
+      message: ''
     });
   };
 
@@ -48,20 +55,10 @@ const ContactForm = () => {
               <h2 className="section-title">Get in Touch</h2>
               <p className="text-gray-600 mb-8">
                 Have questions about our services or need assistance with your relocation to Japan? 
-                We're here to help! Fill out the form or use our contact information below.
+                We're here to help! Fill out the form or email us directly.
               </p>
               
               <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <MapPin size={20} className="text-tomodachi-red" />
-                  </div>
-                  <div className="ml-4">
-                    <h4 className="text-lg font-semibold text-tomodachi-black">Our Office</h4>
-                    <p className="text-gray-600">1-2-3 Shibuya, Tokyo 150-0002, Japan</p>
-                  </div>
-                </div>
-                
                 <div className="flex items-start">
                   <div className="flex-shrink-0 mt-1">
                     <Mail size={20} className="text-tomodachi-red" />
@@ -73,20 +70,6 @@ const ContactForm = () => {
                     </a>
                   </div>
                 </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <Phone size={20} className="text-tomodachi-red" />
-                  </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="mt-8 pt-8 border-t border-gray-100">
-                <h4 className="text-lg font-semibold text-tomodachi-black mb-4">Office Hours</h4>
-                <p className="text-gray-600 mb-1">Monday - Friday: 9:00 AM - 6:00 PM (JST)</p>
-                <p className="text-gray-600">Saturday: 10:00 AM - 4:00 PM (JST)</p>
               </div>
             </div>
             
@@ -124,21 +107,22 @@ const ContactForm = () => {
                   </div>
                   
                   <div className="mb-6">
-                    <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">Service of Interest</label>
-                    <select
-                      id="service"
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-tomodachi-red focus:border-transparent"
+                    <label className="block text-sm font-medium text-gray-700 mb-3">I'm looking for... *</label>
+                    <RadioGroup
+                      defaultValue="relocation"
+                      value={formData.supportType}
+                      onValueChange={handleRadioChange}
+                      className="flex flex-col space-y-2"
                     >
-                      <option value="general">General Inquiry</option>
-                      <option value="relocation">Relocation Services</option>
-                      <option value="visa">Visa Support</option>
-                      <option value="housing">Housing Assistance</option>
-                      <option value="translation">Translation Services</option>
-                      <option value="cultural">Cultural Orientation</option>
-                    </select>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="relocation" id="relocation" />
+                        <label htmlFor="relocation">Relocation support</label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="one-off" id="one-off" />
+                        <label htmlFor="one-off">One-off task support</label>
+                      </div>
+                    </RadioGroup>
                   </div>
                   
                   <div className="mb-6">
@@ -163,6 +147,7 @@ const ContactForm = () => {
                       onChange={handleChange}
                       rows={5}
                       required
+                      placeholder="Tell us about your situation:&#10;* Are you moving alone, with a partner, or with family and pets?&#10;* What's your work or visa situation?&#10;* When are you planning to move?&#10;* What kind of help do you need?"
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-tomodachi-red focus:border-transparent"
                     ></textarea>
                   </div>
