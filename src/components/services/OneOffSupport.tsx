@@ -21,7 +21,7 @@ const supportServices = [
   },
   {
     icon: <User className="w-6 h-6 text-tomodachi-red" />,
-    title: 'Booking reservations'
+    title: 'Booking Reservations'
   }
 ];
 
