@@ -5,7 +5,7 @@ import { FileText, Home, CreditCard, Globe, School, Users, Check, ExternalLink }
 // App icons
 const appIcons = {
   LINE:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/2048px-LINE_logo.svg.png",
-  PayPay:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/2048px-LINE_logo.svg.png",
+  PayPay:"https://play-lh.googleusercontent.com/AieC1ypSSh_2rctvrNtVggyFRP9cNtvnEIPkVmzZGFlhN8bNdHCl3GZbxK7O8vCe7A",
   Suica:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/2048px-LINE_logo.svg.png",
   PASMO: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/2048px-LINE_logo.svg.png",
   GoogleTranslate: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/2048px-LINE_logo.svg.png",
@@ -19,7 +19,7 @@ const movingGuideSteps = [
     content: (
       <>
         <p className="mb-4">
-          To move to Japan, you'll need a visa — the most common are a Work Visa (requires a job offer) or the new Digital Nomad Visa (for remote workers from select countries). If you're job hunting, check out:
+          To move to Japan, you'll need a visa — the most common are a Work Visa (requires a job offer) or the new Digital Nomad Visa (for remote workers from select countries). Other common visas include a dependent/spouse visa and a student visa. If you're job hunting, check out:
         </p>
         <ul className="mb-4 space-y-1 list-disc ml-6">
           <li><a href="https://jobs.gaijinpot.com/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">GaijinPot</a></li>
@@ -28,7 +28,7 @@ const movingGuideSteps = [
           <li><a href="https://jetprogramme.org/en/positions/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">JET Programme</a></li>
         </ul>
         <p>
-          Once you've got your Certificate of Eligibility, apply for your visa through your <a href="https://www.mofa.go.jp/j_info/visit/visa/index.html" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">local Japanese embassy</a>. Apply at least 1.5 months before departure.
+          Once you've got your Certificate of Eligibility, apply for your visa through your <a href="https://www.mofa.go.jp/j_info/visit/visa/index.html" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">local Japanese embassy</a>. Apply at least 1.5 months before departure from your home country, not while in Japan.
         </p>
       </>
     )
@@ -95,8 +95,8 @@ const movingGuideSteps = [
         <div className="mb-4">
           <strong className="block mb-2">Long-term rental listings:</strong>
           <ul className="list-disc ml-6 space-y-1">
-            <li><a href="https://apartment-japan.com/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">Apartment Japan</a></li>
-            <li><a href="https://realestate.co.jp/en" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">Real Estate Japan</a></li>
+            <li><a href="https://www.athome.co.jp/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">At Home</a></li>
+            <li><a href="https://suumo.jp/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">Suumo</a></li>
             <li><a href="https://apartments.gaijinpot.com/en" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">GaijinPot Apartments</a></li>
           </ul>
         </div>
@@ -107,7 +107,7 @@ const movingGuideSteps = [
             <li>Sharehouses: <a href="https://www.sakura-house.com/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">Sakura House</a> / <a href="https://www.oakhouse.jp/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">Oak House</a></li>
           </ul>
         </div>
-        <p className="text-sm text-gray-600">Note: Some rentals don't accept foreigners or pets and may require a guarantor.</p>
+        <p className="text-sm text-gray-600">Note: Some rentals don't accept foreigners or pets and may require a guarantor. Use google chrome to translate the websites into your native language.</p>
       </>
     )
   },
@@ -162,7 +162,7 @@ const movingGuideSteps = [
             <li><a href="https://www.shinseibank.com/english/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">Shinsei Bank</a></li>
           </ul>
         </div>
-        <p>Bring passport, residence card, Japanese phone number, and proof of address.</p>
+        <p>These banks proved to offer the most English customer support and understanding of expats needs/concerns. Bring passport, residence card, Japanese phone number, and proof of address.</p>
       </>
     )
   },
@@ -179,7 +179,7 @@ const movingGuideSteps = [
             <li><a href="https://www.eposcard.co.jp/international/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">EPOS Card</a></li>
           </ul>
         </div>
-        <p>Bring residence card, phone number, and income information.</p>
+        <p>Japanese credit card applications can be hard to pass for expats. These cards are easier to attain and offer great benefits. Bring residence card, phone number, and income information.</p>
       </>
     )
   },
