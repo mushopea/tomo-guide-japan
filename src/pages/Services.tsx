@@ -3,7 +3,7 @@ import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import ServicesHero from '../components/services/ServicesHero';
 import RelocationStages from '../components/services/RelocationStages';
-import OneOffSupport from '../components/services/OneOffSupport';
+import ContactCTA from '../components/home/ContactCTA';
 
 const Services = () => {
   return (
@@ -12,6 +12,7 @@ const Services = () => {
       <main className="flex-grow">
         <ServicesHero />
         <RelocationStages />
+        <ContactCTA />
       </main>
       <Footer />
     </div>

@@ -37,7 +37,7 @@ const RelocationStages = () => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <div key={index} className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow duration-300">
               <div className="h-48 rounded-lg overflow-hidden mb-6">
@@ -50,12 +50,17 @@ const RelocationStages = () => {
               <h3 className="text-xl font-bold text-tomodachi-black mb-2">{service.title}</h3>
               <p className="text-gray-600 mb-6">{service.subtitle}</p>
               <ul className="space-y-3">
-                {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{feature}</span>
-                  </li>
-                ))}
+                {service.features.map((feature, featureIndex) => {
+                  const [title, description] = feature.split(': ');
+                  return (
+                    <li key={featureIndex} className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">
+                        <strong>{title}</strong>: {description}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
