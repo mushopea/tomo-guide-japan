@@ -27,7 +27,8 @@ const services = [
       "Apartment Search: Foreign-friendly, pet-friendly, and short-term options",
       "Agent Communication: Handle language, bookings, and scheduling",
       "Lease Guidance: Translate terms and explain contracts",
-      "Move-In Prep: Help with required documents and basic setup"
+      "Move-In Prep: Help with required documents and basic setup",
+      "Utilities: Set up water, electricity and more"
     ]
   },
   {
