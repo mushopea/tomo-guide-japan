@@ -22,7 +22,7 @@ const serviceCards = [
 
 const ServiceCategories = () => {
   return (
-    <section className="px-16 bg-white">
+    <section className="py-8 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
         </div>
