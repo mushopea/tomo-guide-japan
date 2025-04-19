@@ -24,7 +24,7 @@ const movingGuideSteps = [
         <ul className="mb-4 space-y-1 list-disc ml-6">
           <li><a href="https://jobs.gaijinpot.com/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">GaijinPot</a></li>
           <li><a href="https://jobsinjapan.com" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">Jobs in Japan</a></li>
-          <li><a href="https://www.daijob.com/en/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">Daijob</a></li>
+          <li><a href="https://careerforum.net/en/event/bos/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">Boston Career Forum</a></li>
           <li><a href="https://jetprogramme.org/en/positions/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">JET Programme</a></li>
         </ul>
         <p>
