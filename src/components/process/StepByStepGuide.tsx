@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { FileText, Home, CreditCard, Globe, School, Users, Check, ExternalLink } from 'lucide-react';
 
@@ -9,7 +8,8 @@ const appIcons = {
   Suica:"https://img.icons8.com/color/512/suica.png",
   PASMO: "https://res.cloudinary.com/teepublic/image/private/s--UfOM8b_B--/c_crop,x_10,y_10/c_fit,h_1109/c_crop,g_north_west,h_1260,w_1050,x_-64,y_-76/co_rgb:ffffff,e_colorize,u_Misc:One%20Pixel%20Gray/c_scale,g_north_west,h_1260,w_1050/fl_layer_apply,g_north_west,x_-64,y_-76/bo_0px_solid_white/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:51/co_ffffff,e_outline:inner_fill:51/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_auto:good:420,w_630/v1581718091/production/designs/7983292_1.jpg",
   GoogleTranslate: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/1024px-Google_Translate_logo.svg.png",
-  Mercari: "https://o.qoo-img.com/ggpht/r3ej9chUEQ8p7pM0XN79WcTePSAjRaJaRvKYyyvjwGGQlFkZgwaNfuIVomWG8CNE80Q"};
+  Mercari: "https://o.qoo-img.com/ggpht/r3ej9chUEQ8p7pM0XN79WcTePSAjRaJaRvKYyyvjwGGQlFkZgwaNfuIVomWG8CNE80Q"
+};
 
 const movingGuideSteps = [
   {
@@ -269,7 +269,14 @@ const StepByStepGuide = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          {/* Table of Contents */}
+          <div className="mb-12 rounded-lg overflow-hidden h-64">
+            <img 
+              src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+              alt="Moving to Japan" 
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+
           <div className="mb-16 p-6 border border-gray-200 rounded-lg bg-gray-50">
             <h3 className="text-xl font-bold mb-4 text-tomodachi-black">Table of Contents</h3>
             
@@ -310,11 +317,9 @@ const StepByStepGuide = () => {
             </div>
           </div>
           
-          {/* Guide Content */}
           <div className="space-y-16">
-            {/* Before Arrival Section */}
             <div>
-              <h3 className="text-xl font-bold text-tomodachi-black mb-8 pb-2 border-b border-gray-200">BEFORE YOU ARRIVE IN JAPAN</h3>
+              <h3 className="text-xl font-bold text-tomodachi-black mb-8">BEFORE YOU ARRIVE IN JAPAN</h3>
               <div className="relative">
                 <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gray-200"></div>
                 {movingGuideSteps.filter(step => step.category === "BEFORE ARRIVAL").map((step, index) => (
@@ -335,9 +340,8 @@ const StepByStepGuide = () => {
               </div>
             </div>
             
-            {/* After Arrival Section */}
             <div>
-              <h3 className="text-xl font-bold text-tomodachi-black mb-8 pb-2 border-b border-gray-200">WHEN YOU ARRIVE IN JAPAN</h3>
+              <h3 className="text-xl font-bold text-tomodachi-black mb-8">WHEN YOU ARRIVE IN JAPAN</h3>
               <div className="relative">
                 <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gray-200"></div>
                 {movingGuideSteps.filter(step => step.category === "AFTER ARRIVAL").map((step, index) => (
@@ -359,19 +363,18 @@ const StepByStepGuide = () => {
             </div>
           </div>
           
-          {/* Moving Checklist */}
-          <div className="mt-16 pt-10 border-t border-gray-200">
-            <h3 className="text-2xl font-bold text-tomodachi-black mb-6">Tomodachi Moving Checklist</h3>
+          <div className="mt-16 py-10 bg-tomodachi-red bg-opacity-10 rounded-lg px-8">
+            <h1 className="text-3xl font-bold text-tomodachi-black mb-4">Tomodachi Moving Checklist</h1>
             <p className="text-gray-600 mb-8">
-              Stay organized with our comprehensive checklist for your move to Japan. Track your progress and ensure nothing is forgotten.
+              Download our free checklist. Built from real advice, expat experience, and local know-how.
             </p>
             <div className="text-center">
               <button 
                 className="btn-primary inline-flex items-center"
                 onClick={(e) => e.preventDefault()}
               >
-                <Check className="mr-2 h-5 w-5" />
-                Download Printable PDF
+                <Download className="mr-2 h-5 w-5" />
+                Download Checklist
               </button>
             </div>
           </div>

@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -63,7 +62,7 @@ const TestimonialCarousel = () => {
   }, [isAutoplay, activeIndex]);
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-tomodachi-red bg-opacity-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-tomodachi-black">What Our Clients Say</h2>

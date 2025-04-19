@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
@@ -7,7 +6,7 @@ const HeroSection = () => {
     <section className="bg-tomodachi-red bg-opacity-10 py-8 md:py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 w-2/3 mb-8 md:mb-0">
+          <div className="w-full md:w-1/2 mb-8 md:mb-0 px-4 md:px-0">
             <span className="text-gray-500 text-sm mb-2 block">
               <strong className="text-[#ea384c] font-bold">ともだち</strong>
             </span>
@@ -19,7 +18,7 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-row space-x-4">
               <Link to="/services" className="btn-primary flex items-center shadow-md hover:shadow-lg transition-shadow">
-                Our Services
+                Contact Us
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
               <Link to="/contact" className="btn-outline">

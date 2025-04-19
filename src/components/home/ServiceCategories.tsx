@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
@@ -35,14 +34,14 @@ const ServiceCategories = () => {
             <Link to={card.link} key={card.id} className="bg-white p-6 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
               <div className="mb-4 w-full h-48 rounded-lg overflow-hidden">
                 <img 
-                  src={card.image} 
+                  src={card.id === 2 ? "/lovable-uploads/c2cd7372-0ab4-489b-a2b3-de9f0a415be0.png" : card.image} 
                   alt={card.title}
                   className="w-full h-full object-cover"
                 />
               </div>
               <h3 className="text-xl font-bold text-tomodachi-black mb-2">{card.title}</h3>
               <p className="text-gray-600 mb-4">{card.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4 min-h-[32px]">
+              <div className="flex flex-wrap gap-2 mb-4 h-[32px]">
                 {card.chips.map((chip, index) => (
                   <span key={index} className="inline-block px-3 py-1 text-sm font-medium text-tomodachi-black bg-white border border-tomodachi-red rounded-full">
                     {chip}
