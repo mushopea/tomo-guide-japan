@@ -67,7 +67,7 @@ const ContactForm = () => {
                   <div className="ml-4">
                     <h4 className="text-lg font-semibold text-tomodachi-black">Email Us</h4>
                     <a href="mailto:hello@tomodachi.jp" className="text-gray-600 hover:text-tomodachi-red">
-                      hello@tomodachi.jp
+                    contactyourtomodachi@gmail.com
                     </a>
                   </div>
                 </div>
