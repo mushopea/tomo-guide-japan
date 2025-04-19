@@ -13,7 +13,15 @@ const supportServices = [
   },
   {
     icon: <User className="w-6 h-6 text-tomodachi-red" />,
-    title: 'In-Person Support'
+    title: 'In-Person Translation Services'
+  },
+  {
+    icon: <User className="w-6 h-6 text-tomodachi-red" />,
+    title: 'City Hall Visits'
+  },
+  {
+    icon: <User className="w-6 h-6 text-tomodachi-red" />,
+    title: 'Booking reservations'
   }
 ];
 
