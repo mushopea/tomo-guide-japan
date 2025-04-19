@@ -14,25 +14,13 @@ const services = [
       "Banking Setup: Account opening and credit card support",
       "Phone Plan Setup: SIM card or eSIM registration with English-friendly carriers",
       "Utilities Setup: Start gas, water, electricity, and internet",
-      "Housing Support: Help finding temporary or permanent housing",
+      "Housing Support: Finding your temporary or permanent housing",
       "Translation Help: In-person support at city hall, clinics, and other services",
       "Local Advice: School, clinic, and neighborhood recommendations"
     ]
   },
   {
-    title: "Housing Support",
-    subtitle: "Full support for finding and securing your new home.",
-    image: "https://images.unsplash.com/photo-1582883040775-f98dd8c04597",
-    features: [
-      "Apartment Search: Foreign-friendly, pet-friendly, and short-term options",
-      "Agent Communication: Handle language, bookings, and scheduling",
-      "Lease Guidance: Translate terms and explain contracts",
-      "Move-In Prep: Help with required documents and basic setup",
-      "Utilities: Set up water, electricity and more"
-    ]
-  },
-  {
-    title: "One-Off Task Help",
+    title: "One-Off Task",
     subtitle: "Flexible help for individual tasks — remote or in-person, billed at an affordable hourly rate.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
     features: [
