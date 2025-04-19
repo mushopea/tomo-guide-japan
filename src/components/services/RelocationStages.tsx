@@ -37,7 +37,6 @@ const RelocationStages = () => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-tomodachi-black mb-8 text-center">Our Services</h2>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div key={index} className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow duration-300">
