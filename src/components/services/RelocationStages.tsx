@@ -1,44 +1,46 @@
 
+import { Check } from "lucide-react";
+
 const services = [
   {
-    id: 1,
-    title: 'Visa Support',
-    description: 'Complete guidance through the visa application process and required documentation.'
+    title: "Full Relocation Support",
+    subtitle: "Moving to Japan is a big step — we're here to support all of it, or just the parts that matter most to you.",
+    image: "https://images.unsplash.com/photo-1551322120-c697cf88fbdc",
+    features: [
+      "Visa Support: Help with document prep and embassy application",
+      "Arrival Welcome: Airport pickup and navigation to your stay",
+      "Legal Registration: Residence card, address registration, MyNumber setup",
+      "Health Enrollment: National insurance and pension application",
+      "Banking Setup: Account opening and credit card support",
+      "Phone Plan Setup: SIM card or eSIM registration with English-friendly carriers",
+      "Utilities Setup: Start gas, water, electricity, and internet",
+      "Housing Basics: Guidance on choosing and preparing your first home in Japan",
+      "Translation Help: In-person support at city hall, clinics, and other services",
+      "Local Advice: School, clinic, and neighborhood recommendations"
+    ]
   },
   {
-    id: 2,
-    title: 'Home Finding',
-    description: 'House or apartment hunting based on your preferences and budget, handling all negotiations and paperwork. If applicable, we will help family pets make the trip too!'
+    title: "Housing Support",
+    subtitle: "Full support for finding and securing your new home.",
+    image: "https://images.unsplash.com/photo-1582883040775-f98dd8c04597",
+    features: [
+      "Apartment Search: Foreign-friendly, pet-friendly, and short-term options",
+      "Agent Communication: Handle language, bookings, and scheduling",
+      "Lease Guidance: Translate terms and explain contracts",
+      "Move-In Prep: Help with required documents and basic setup"
+    ]
   },
   {
-    id: 3,
-    title: 'Phone Number',
-    description: 'Assistance with purchasing SIM cards and setting up phone service.'
-  },
-  {
-    id: 4,
-    title: 'Setting Up Utilities',
-    description: 'Setting up water, gas, electricity, and internet.'
-  },
-  {
-    id: 5,
-    title: 'Residential Card',
-    description: 'Assistance with obtaining your residence card and setting up national insurance at city hall.'
-  },
-  {
-    id: 6,
-    title: 'Bank Account Setup',
-    description: 'Guidance through the process of opening local bank accounts and understanding banking procedures.'
-  },
-  {
-    id: 7,
-    title: 'Cultural Orientation',
-    description: 'Help looking for Japanese classes, developing connections with other expats and locals, and assistance learning local customs.'
-  },
-  {
-    id: 8,
-    title: 'On-Demand Support',
-    description: 'Ongoing assistance with translations, appointments, or any other needs that arise during your time in Japan.'
+    title: "One-Off Task Help",
+    subtitle: "Flexible help for individual tasks — remote or in-person, billed at an affordable hourly rate.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
+    features: [
+      "Ward Office Support: Help with address registration, forms, and translation",
+      "Utility Setup: Arrange gas, water, electricity, and internet",
+      "Filling Forms: Assistance completing paperwork for housing, insurance, or banking",
+      "Communication with Services: We'll call, translate, or email Japanese providers on your behalf",
+      "Lease Guidance: Help reviewing rental contracts and understanding key terms"
+    ]
   }
 ];
 
@@ -47,12 +49,26 @@ const RelocationStages = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-tomodachi-black mb-8 text-center">Our Services</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => (
-            <div key={service.id} className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow duration-300">
-              <div className="bg-gray-200 w-full h-48 rounded-lg mb-4"></div>
-              <h3 className="text-xl font-bold text-tomodachi-black mb-3">{service.title}</h3>
-              <p className="text-gray-600">{service.description}</p>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <div key={index} className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow duration-300">
+              <div className="h-48 rounded-lg overflow-hidden mb-6">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-tomodachi-black mb-2">{service.title}</h3>
+              <p className="text-gray-600 mb-6">{service.subtitle}</p>
+              <ul className="space-y-3">
+                {service.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
