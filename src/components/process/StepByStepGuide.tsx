@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FileText, Home, CreditCard, Globe, School, Users, Check, ExternalLink } from 'lucide-react';
+import { FileText, Home, CreditCard, Globe, School, Users, Check, ExternalLink, Download } from 'lucide-react';
 
 // App icons
 const appIcons = {
