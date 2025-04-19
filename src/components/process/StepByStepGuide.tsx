@@ -6,10 +6,10 @@ import { FileText, Home, CreditCard, Globe, School, Users, Check, ExternalLink }
 const appIcons = {
   LINE:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/2048px-LINE_logo.svg.png",
   PayPay:"https://play-lh.googleusercontent.com/AieC1ypSSh_2rctvrNtVggyFRP9cNtvnEIPkVmzZGFlhN8bNdHCl3GZbxK7O8vCe7A",
-  Suica:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/2048px-LINE_logo.svg.png",
-  PASMO: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/2048px-LINE_logo.svg.png",
-  GoogleTranslate: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/2048px-LINE_logo.svg.png",
-  Mercari: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/2048px-LINE_logo.svg.png"};
+  Suica:"https://img.icons8.com/color/512/suica.png",
+  PASMO: "https://res.cloudinary.com/teepublic/image/private/s--UfOM8b_B--/c_crop,x_10,y_10/c_fit,h_1109/c_crop,g_north_west,h_1260,w_1050,x_-64,y_-76/co_rgb:ffffff,e_colorize,u_Misc:One%20Pixel%20Gray/c_scale,g_north_west,h_1260,w_1050/fl_layer_apply,g_north_west,x_-64,y_-76/bo_0px_solid_white/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:51/co_ffffff,e_outline:inner_fill:51/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_auto:good:420,w_630/v1581718091/production/designs/7983292_1.jpg",
+  GoogleTranslate: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/1024px-Google_Translate_logo.svg.png",
+  Mercari: "https://o.qoo-img.com/ggpht/r3ej9chUEQ8p7pM0XN79WcTePSAjRaJaRvKYyyvjwGGQlFkZgwaNfuIVomWG8CNE80Q"};
 
 const movingGuideSteps = [
   {
