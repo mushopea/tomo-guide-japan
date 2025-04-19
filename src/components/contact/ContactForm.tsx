@@ -148,7 +148,7 @@ const ContactForm = () => {
                       onChange={handleChange}
                       rows={5}
                       required
-                      placeholder="Tell us about your situation:&#10;* Are you moving alone, with a partner, or with family and pets?&#10;* What's your work or visa situation?&#10;* When are you planning to move?&#10;* What kind of help do you need?"
+                      placeholder="Tell us about your request. If you are relocating, let us know: &#10;* Are you moving alone, with a partner, or with family and pets?&#10;* What's your work or visa situation?&#10;* When are you planning to move?&#10;* What kind of help do you need?"
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-tomodachi-red focus:border-transparent"
                     ></textarea>
                   </div>
