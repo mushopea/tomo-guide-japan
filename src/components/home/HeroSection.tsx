@@ -18,7 +18,7 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-row space-x-4">
               <Link to="/services" className="btn-primary flex items-center shadow-md hover:shadow-lg transition-shadow">
-                Contact Us
+                View Services
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
               <Link to="/contact" className="btn-outline">
