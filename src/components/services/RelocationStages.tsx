@@ -14,7 +14,7 @@ const services = [
       "Banking Setup: Account opening and credit card support",
       "Phone Plan Setup: SIM card or eSIM registration with English-friendly carriers",
       "Utilities Setup: Start gas, water, electricity, and internet",
-      "Housing Basics: Guidance on choosing and preparing your first home in Japan",
+      "Housing Support: Help finding temporary or permanent housing",
       "Translation Help: In-person support at city hall, clinics, and other services",
       "Local Advice: School, clinic, and neighborhood recommendations"
     ]
