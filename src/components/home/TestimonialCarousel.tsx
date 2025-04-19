@@ -11,7 +11,7 @@ const testimonials = [
   },
   {
     id: 2,
-    content: ""I was feeling quite anxious about my psychiatrist appointment, especially with the language barrier. Thankfully, Trent stepped in and took care of the booking process, which was a huge relief. Having them there for in-person translation during the appointment was incredibly helpful and made me feel so much more comfortable and understood. I highly recommend their thoughtful and efficient support!",
+    content: "I was feeling quite anxious about my psychiatrist appointment, especially with the language barrier. Thankfully, Trent stepped in and took care of the booking process, which was a huge relief. Having them there for in-person translation during the appointment was incredibly helpful and made me feel so much more comfortable and understood. I highly recommend their thoughtful and efficient support!",
     name: "Xinni C",
     city: "Tokyo"
   },
