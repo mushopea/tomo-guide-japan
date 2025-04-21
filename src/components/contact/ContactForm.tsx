@@ -31,12 +31,12 @@ const ContactForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    
+
     // In a real implementation, you would send this data to your backend
     toast.success('Thank you for your message! We will get back to you soon.', {
       duration: 5000,
     });
-    
+
     // Reset form
     setFormData({
       name: '',
@@ -67,7 +67,7 @@ const ContactForm = () => {
                   <div className="ml-4">
                     <h4 className="text-lg font-semibold text-tomodachi-black">Email Us</h4>
                     <a href="mailto:contactyourtomodachi@gmail.com" className="text-gray-600 hover:text-tomodachi-red">
-                    contactyourtomodachi@gmail.com
+                      contactyourtomodachi@gmail.com
                     </a>
                   </div>
                 </div>
@@ -94,12 +94,12 @@ const ContactForm = () => {
                     </div>
                     
                     <div>
-                      <label htmlFor="contactyourtomodachi@gmail.com" className="block text-sm font-medium text-gray-700 mb-1">contactyourtomodachi@gmail.com *</label>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Your Email *</label>
                       <input
-                        type="contactyourtomodachi@gmail.com"
-                        id="contactyourtomodachi@gmail.com"
-                        name="contactyourtomodachi@gmail.com"
-                        value={formData.contactyourtomodachi@gmail.com}
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-tomodachi-red focus:border-transparent"
