@@ -375,7 +375,8 @@ const StepByStepGuide = () => {
               >
                 <Download className="mr-2 h-5 w-5" />
                 Download Checklist
-              </button>
+              </button
+              https://github.com/mushopea/tomo-guide-japan/blob/45ce074181a29b3ed7daeb3655254826caa0c523/Moving%20Guide%20PDF%20(1).pdf>
             </div>
           </div>
         </div>
