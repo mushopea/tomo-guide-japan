@@ -370,7 +370,7 @@ const StepByStepGuide = () => {
             </p>
             <div className="text-center">
               <a
-                href="https://github.com/mushopea/tomo-guide-japan/blob/45ce074181a29b3ed7daeb3655254826caa0c523/Moving%20Guide%20PDF%20(1).pdf"
+                href="Moving Guide PDF (1).pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-tomodachi-red text-white rounded-md font-semibold shadow hover:bg-tomodachi-black transition-colors"
