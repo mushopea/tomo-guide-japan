@@ -94,12 +94,12 @@ const ContactForm = () => {
                     </div>
                     
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Your Email *</label>
+                      <label htmlFor="contactyourtomodachi@gmail.com" className="block text-sm font-medium text-gray-700 mb-1">contactyourtomodachi@gmail.com *</label>
                       <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
+                        type="contactyourtomodachi@gmail.com"
+                        id="contactyourtomodachi@gmail.com"
+                        name="contactyourtomodachi@gmail.com"
+                        value={formData.contactyourtomodachi@gmail.com}
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-tomodachi-red focus:border-transparent"
