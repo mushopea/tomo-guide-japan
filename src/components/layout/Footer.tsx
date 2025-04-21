@@ -42,7 +42,7 @@ const Footer = () => {
             <div className="flex">
               <Mail size={18} className="text-tomodachi-red mr-2 flex-shrink-0 mt-0.5" />
               <a href="mailto:hello@tomodachi.jp" className="text-sm text-gray-600 hover:text-tomodachi-red">
-                hello@tomodachi.jp
+                contactyourtomodachi@gmail.com
               </a>
             </div>
           </div>
