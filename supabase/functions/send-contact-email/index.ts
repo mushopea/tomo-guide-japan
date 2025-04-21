@@ -28,14 +28,25 @@ serve(async (req) => {
     }
     
     // SMTP configuration
-    const SMTP_USERNAME = Deno.env.get("contactyourtomodachi@gmail.com") || "";
-    const SMTP_PASSWORD = Deno.env.get("nmbo yodc hknc cgjh") || "";
+    // Get environment variables with proper fallbacks
+    const SMTP_USERNAME = Deno.env.get("SMTP_USERNAME") || "";
+    const SMTP_PASSWORD = Deno.env.get("SMTP_PASSWORD") || "";
     const SMTP_HOST = Deno.env.get("SMTP_HOST") || "smtp.gmail.com";
     const SMTP_PORT = parseInt(Deno.env.get("SMTP_PORT") || "465");
+    const DESTINATION_EMAIL = "contactyourtomodachi@gmail.com"; // Hardcoded destination email
     
     if (!SMTP_USERNAME || !SMTP_PASSWORD) {
-      throw new Error("SMTP credentials not configured");
+      console.error("SMTP credentials not configured properly");
+      return new Response(
+        JSON.stringify({ error: "Email service not configured properly. Please contact support." }),
+        { 
+          status: 500, 
+          headers: { ...corsHeaders, "Content-Type": "application/json" } 
+        }
+      );
     }
+    
+    console.log("Attempting to connect to SMTP server");
     
     // Create SMTP client and connect
     const client = new SmtpClient();
@@ -46,6 +57,8 @@ serve(async (req) => {
       username: SMTP_USERNAME,
       password: SMTP_PASSWORD,
     });
+    
+    console.log("SMTP connection established");
     
     // Build email content
     const emailContent = `
@@ -63,10 +76,12 @@ ${message}
     // Send email
     await client.send({
       from: SMTP_USERNAME,
-      to: "contactyourtomodachi@gmail.com", // Destination email hardcoded
+      to: DESTINATION_EMAIL,
       subject: `Contact Form: ${subject}`,
       content: emailContent,
     });
+    
+    console.log("Email sent successfully");
     
     await client.close();
     

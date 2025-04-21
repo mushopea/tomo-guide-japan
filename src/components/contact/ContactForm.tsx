@@ -4,11 +4,22 @@ import { Mail, Send } from 'lucide-react';
 import { toast } from 'sonner';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Button } from "@/components/ui/button";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { createClient } from '@supabase/supabase-js';
 
-// Initialize Supabase client
+// Initialize Supabase client with proper error handling
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+let supabase = null;
+
+// Only create the client if we have the required credentials
+if (supabaseUrl && supabaseAnonKey) {
+  try {
+    supabase = createClient(supabaseUrl, supabaseAnonKey);
+  } catch (error) {
+    console.error("Failed to initialize Supabase client:", error);
+  }
+}
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +31,8 @@ const ContactForm = () => {
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -39,30 +52,33 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError('');
+    setSubmitSuccess(false);
     
     try {
       console.log('Form submitted:', formData);
       
       // If Supabase is configured, use it
-      if (supabaseUrl && supabaseAnonKey) {
-        const supabase = createClient(supabaseUrl, supabaseAnonKey);
-        
+      if (supabase) {
+        console.log('Using Supabase edge function');
         const { data, error } = await supabase.functions.invoke('send-contact-email', {
           body: JSON.stringify(formData),
         });
         
         if (error) {
           console.error('Error sending message via Supabase:', error);
-          throw new Error(error.message);
+          throw new Error(error.message || 'Failed to send email via Supabase function');
         }
         
+        console.log('Supabase function response:', data);
+        setSubmitSuccess(true);
         toast.success('Thank you for your message! We will get back to you soon.', {
           duration: 5000,
         });
       } else {
-        // Fallback for when Supabase is not configured - direct fetch to the function URL
-        // This assumes the function is deployed and accessible via a public URL
-        const response = await fetch('https://contactyourtomodachi.vercel.app/api/send-email', {
+        // Direct API call as fallback
+        console.log('Supabase not configured, using direct API call');
+        const response = await fetch('https://yourtomodachi-api.vercel.app/api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -75,6 +91,7 @@ const ContactForm = () => {
           throw new Error(errorData.error || 'Failed to send message');
         }
         
+        setSubmitSuccess(true);
         toast.success('Thank you for your message! We will get back to you soon.', {
           duration: 5000,
         });
@@ -90,6 +107,7 @@ const ContactForm = () => {
       });
     } catch (error) {
       console.error('Error submitting form:', error);
+      setSubmitError(error.message || 'There was a problem sending your message. Please try again.');
       toast.error('There was a problem sending your message. Please try again.', {
         duration: 5000,
       });
@@ -128,6 +146,24 @@ const ContactForm = () => {
             <div className="lg:w-3/5">
               <div className="bg-white border border-gray-100 rounded-lg p-8">
                 <h3 className="text-2xl font-bold text-tomodachi-black mb-6">Send Us a Message</h3>
+                
+                {submitError && (
+                  <Alert variant="destructive" className="mb-6">
+                    <AlertTitle>Error</AlertTitle>
+                    <AlertDescription>
+                      {submitError}
+                    </AlertDescription>
+                  </Alert>
+                )}
+                
+                {submitSuccess && (
+                  <Alert className="mb-6 bg-green-50 border-green-200">
+                    <AlertTitle>Message Sent!</AlertTitle>
+                    <AlertDescription>
+                      Thank you for your message. We'll get back to you as soon as possible.
+                    </AlertDescription>
+                  </Alert>
+                )}
                 
                 <form onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
