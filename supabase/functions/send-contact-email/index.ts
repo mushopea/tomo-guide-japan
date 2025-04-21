@@ -28,8 +28,8 @@ serve(async (req) => {
     }
     
     // SMTP configuration
-    const SMTP_USERNAME = Deno.env.get("SMTP_USERNAME") || "";
-    const SMTP_PASSWORD = Deno.env.get("SMTP_PASSWORD") || "";
+    const SMTP_USERNAME = Deno.env.get("contactyourtomodachi@gmail.com") || "";
+    const SMTP_PASSWORD = Deno.env.get("Donka1616") || "";
     const SMTP_HOST = Deno.env.get("SMTP_HOST") || "smtp.gmail.com";
     const SMTP_PORT = parseInt(Deno.env.get("SMTP_PORT") || "465");
     
