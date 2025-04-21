@@ -1,4 +1,5 @@
-supabase functions deploy send-contact-email
+
+// supabase functions deploy send-contact-email
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
 import { SmtpClient } from "https://deno.land/x/smtp@v0.7.0/mod.ts";
 
@@ -38,7 +39,9 @@ serve(async (req) => {
     if (!SMTP_USERNAME || !SMTP_PASSWORD) {
       console.error("SMTP credentials not configured properly");
       return new Response(
-        JSON.stringify({ error: "Email service not configured properly. Please contact support." }),
+        JSON.stringify({ 
+          error: "Email service not configured properly. Please check SMTP_USERNAME and SMTP_PASSWORD in Supabase secrets." 
+        }),
         { 
           status: 500, 
           headers: { ...corsHeaders, "Content-Type": "application/json" } 
@@ -46,22 +49,23 @@ serve(async (req) => {
       );
     }
     
-    console.log("Attempting to connect to SMTP server");
+    console.log("Attempting to connect to SMTP server:", SMTP_HOST, SMTP_PORT);
     
     // Create SMTP client and connect
     const client = new SmtpClient();
     
-    await client.connectTLS({
-      hostname: SMTP_HOST,
-      port: SMTP_PORT,
-      username: SMTP_USERNAME,
-      password: SMTP_PASSWORD,
-    });
-    
-    console.log("SMTP connection established");
-    
-    // Build email content
-    const emailContent = `
+    try {
+      await client.connectTLS({
+        hostname: SMTP_HOST,
+        port: SMTP_PORT,
+        username: SMTP_USERNAME,
+        password: SMTP_PASSWORD,
+      });
+      
+      console.log("SMTP connection established");
+      
+      // Build email content
+      const emailContent = `
 New Contact Form Submission
 
 Name: ${name}
@@ -71,34 +75,52 @@ Subject: ${subject}
 
 Message:
 ${message}
-    `;
-    
-    // Send email
-    await client.send({
-      from: SMTP_USERNAME,
-      to: DESTINATION_EMAIL,
-      subject: `Contact Form: ${subject}`,
-      content: emailContent,
-    });
-    
-    console.log("Email sent successfully");
-    
-    await client.close();
-    
-    // Return success response
-    return new Response(
-      JSON.stringify({ success: true }),
-      { 
-        status: 200, 
-        headers: { ...corsHeaders, "Content-Type": "application/json" } 
-      }
-    );
-    
+      `;
+      
+      // Send email
+      await client.send({
+        from: SMTP_USERNAME,
+        to: DESTINATION_EMAIL,
+        subject: `Contact Form: ${subject}`,
+        content: emailContent,
+      });
+      
+      console.log("Email sent successfully");
+      
+      await client.close();
+      
+      // Return success response
+      return new Response(
+        JSON.stringify({ success: true }),
+        { 
+          status: 200, 
+          headers: { ...corsHeaders, "Content-Type": "application/json" } 
+        }
+      );
+    } catch (smtpError) {
+      console.error("SMTP Error:", smtpError);
+      return new Response(
+        JSON.stringify({ 
+          error: "Failed to send email via SMTP", 
+          details: smtpError.message,
+          smtp_config: {
+            host: SMTP_HOST,
+            port: SMTP_PORT,
+            username_provided: SMTP_USERNAME ? "Yes" : "No",
+            password_provided: SMTP_PASSWORD ? "Yes" : "No"
+          }
+        }),
+        { 
+          status: 500, 
+          headers: { ...corsHeaders, "Content-Type": "application/json" } 
+        }
+      );
+    }
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error("Error processing request:", error);
     
     return new Response(
-      JSON.stringify({ error: "Failed to send email", details: error.message }),
+      JSON.stringify({ error: "Failed to process request", details: error.message }),
       { 
         status: 500, 
         headers: { ...corsHeaders, "Content-Type": "application/json" } 

@@ -6,6 +6,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { createClient } from '@supabase/supabase-js';
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 // Initialize Supabase client with proper error handling
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
@@ -75,36 +77,19 @@ const ContactForm = () => {
         toast.success('Thank you for your message! We will get back to you soon.', {
           duration: 5000,
         });
+        
+        // Reset form after successful submission
+        setFormData({
+          name: '',
+          email: '',
+          supportType: 'relocation',
+          subject: '',
+          message: ''
+        });
       } else {
-        // Direct API call as fallback
-        console.log('Supabase not configured, using direct API call');
-        const response = await fetch('https://yourtomodachi-api.vercel.app/api/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
-        
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'Failed to send message');
-        }
-        
-        setSubmitSuccess(true);
-        toast.success('Thank you for your message! We will get back to you soon.', {
-          duration: 5000,
-        });
+        // If Supabase is not configured, show a helpful message
+        throw new Error('Email service not properly configured. Please set up Supabase and configure the email function.');
       }
-      
-      // Reset form after successful submission
-      setFormData({
-        name: '',
-        email: '',
-        supportType: 'relocation',
-        subject: '',
-        message: ''
-      });
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitError(error.message || 'There was a problem sending your message. Please try again.');
@@ -169,27 +154,27 @@ const ContactForm = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Your Name *</label>
-                      <input
+                      <Input
                         type="text"
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-tomodachi-red focus:border-transparent"
+                        className="w-full"
                       />
                     </div>
                     
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Your Email *</label>
-                      <input
+                      <Input
                         type="email"
                         id="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-tomodachi-red focus:border-transparent"
+                        className="w-full"
                       />
                     </div>
                   </div>
@@ -215,20 +200,20 @@ const ContactForm = () => {
                   
                   <div className="mb-6">
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject *</label>
-                    <input
+                    <Input
                       type="text"
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-tomodachi-red focus:border-transparent"
+                      className="w-full"
                     />
                   </div>
                   
                   <div className="mb-6">
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Your Message *</label>
-                    <textarea
+                    <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
@@ -236,13 +221,13 @@ const ContactForm = () => {
                       rows={5}
                       required
                       placeholder="Tell us about your request. If you are relocating, let us know: &#10;* Are you moving alone, with a partner, or with family and pets?&#10;* What's your work or visa situation?&#10;* When are you planning to move?&#10;* What kind of help do you need?"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-tomodachi-red focus:border-transparent"
-                    ></textarea>
+                      className="w-full"
+                    />
                   </div>
                   
                   <Button 
                     type="submit" 
-                    className="btn-primary flex items-center"
+                    className="bg-tomodachi-red hover:bg-tomodachi-red/90 text-white flex items-center"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
