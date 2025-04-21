@@ -46,7 +46,7 @@ serve(async (req) => {
     }
     
     await client.connectTLS({
-      hostname: "smtp.gmail.com", // Replace with your SMTP server
+      hostname: "contactyourtomodachi@gmail.com", // Replace with your SMTP server
       port: 465,
       username: SMTP_USERNAME,
       password: SMTP_PASSWORD,
