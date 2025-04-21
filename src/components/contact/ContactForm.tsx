@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Mail, Send } from 'lucide-react';
 import { toast } from 'sonner';
@@ -5,9 +6,14 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Button } from "@/components/ui/button";
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Check for environment variables and provide fallbacks for development
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+
+// Initialize Supabase client conditionally to prevent the "supabaseUrl is required" error
+const supabase = supabaseUrl && supabaseAnonKey 
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null;
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -41,6 +47,11 @@ const ContactForm = () => {
     
     try {
       console.log('Form submitted:', formData);
+      
+      // Check if Supabase client is initialized
+      if (!supabase) {
+        throw new Error('Supabase client is not initialized. Please check your environment variables.');
+      }
       
       // Call the Supabase Edge Function to send the email
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
