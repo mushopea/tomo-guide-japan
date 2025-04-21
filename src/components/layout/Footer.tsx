@@ -41,7 +41,7 @@ const Footer = () => {
             <p className="text-sm text-gray-600 mb-3">Free consultation - tell us what you need.</p>
             <div className="flex">
               <Mail size={18} className="text-tomodachi-red mr-2 flex-shrink-0 mt-0.5" />
-              <a href="mailto:hello@tomodachi.jp" className="text-sm text-gray-600 hover:text-tomodachi-red">
+              <a href="mailto:contactyourtomodachi@gmail.com" className="text-sm text-gray-600 hover:text-tomodachi-red">
                 contactyourtomodachi@gmail.com
               </a>
             </div>
