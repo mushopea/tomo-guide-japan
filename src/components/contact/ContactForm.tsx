@@ -1,8 +1,13 @@
-
 import { useState } from 'react';
 import { Mail, Send } from 'lucide-react';
 import { toast } from 'sonner';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Button } from "@/components/ui/button";
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +17,8 @@ const ContactForm = () => {
     subject: '',
     message: ''
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -28,23 +35,43 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-
-    // In a real implementation, you would send this data to your backend
-    toast.success('Thank you for your message! We will get back to you soon.', {
-      duration: 5000,
-    });
-
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      supportType: 'relocation',
-      subject: '',
-      message: ''
-    });
+    setIsSubmitting(true);
+    
+    try {
+      console.log('Form submitted:', formData);
+      
+      // Call the Supabase Edge Function to send the email
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: JSON.stringify(formData),
+      });
+      
+      if (error) {
+        console.error('Error sending message:', error);
+        toast.error('There was a problem sending your message. Please try again.');
+        return;
+      }
+      
+      toast.success('Thank you for your message! We will get back to you soon.', {
+        duration: 5000,
+      });
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        supportType: 'relocation',
+        subject: '',
+        message: ''
+      });
+      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error('There was a problem sending your message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -153,13 +180,14 @@ const ContactForm = () => {
                     ></textarea>
                   </div>
                   
-                  <button 
+                  <Button 
                     type="submit" 
                     className="btn-primary flex items-center"
+                    disabled={isSubmitting}
                   >
-                    Send Message
-                    <Send size={16} className="ml-2" />
-                  </button>
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {!isSubmitting && <Send size={16} className="ml-2" />}
+                  </Button>
                 </form>
               </div>
             </div>
