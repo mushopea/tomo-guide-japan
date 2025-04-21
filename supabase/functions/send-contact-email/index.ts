@@ -15,12 +15,39 @@ serve(async (req) => {
   }
   
   try {
-    const { name, email, supportType, subject, message } = await req.json();
+    // Parse request body
+    let requestBody;
+    try {
+      requestBody = await req.json();
+    } catch (parseError) {
+      console.error("Error parsing request body:", parseError);
+      return new Response(
+        JSON.stringify({ 
+          error: "Invalid request body", 
+          details: "Failed to parse JSON body. Please ensure your request is properly formatted."
+        }),
+        { 
+          status: 400, 
+          headers: { ...corsHeaders, "Content-Type": "application/json" } 
+        }
+      );
+    }
+    
+    const { name, email, supportType, subject, message } = requestBody;
     
     // Simple validation
     if (!name || !email || !supportType || !subject || !message) {
       return new Response(
-        JSON.stringify({ error: "Missing required fields" }),
+        JSON.stringify({ 
+          error: "Missing required fields",
+          details: `Please provide all required fields: ${[
+            !name && "name",
+            !email && "email",
+            !supportType && "supportType",
+            !subject && "subject",
+            !message && "message"
+          ].filter(Boolean).join(", ")}`
+        }),
         { 
           status: 400, 
           headers: { ...corsHeaders, "Content-Type": "application/json" } 
@@ -40,7 +67,8 @@ serve(async (req) => {
       console.error("SMTP credentials not configured properly");
       return new Response(
         JSON.stringify({ 
-          error: "Email service not configured properly. Please check SMTP_USERNAME and SMTP_PASSWORD in Supabase secrets." 
+          error: "Email service not configured properly",
+          details: "The server is missing SMTP credentials. Please check SMTP_USERNAME and SMTP_PASSWORD in Supabase secrets."
         }),
         { 
           status: 500, 
@@ -99,10 +127,22 @@ ${message}
       );
     } catch (smtpError) {
       console.error("SMTP Error:", smtpError);
+      
+      // Prepare detailed error response
+      let errorMessage = "Failed to send email via SMTP";
+      let errorDetails = smtpError.message || "Unknown SMTP error";
+      
+      // Provide more helpful error messages for common issues
+      if (errorDetails.includes("authentication")) {
+        errorDetails += ". Please verify your SMTP username and password. If using Gmail, make sure you're using an App Password.";
+      } else if (errorDetails.includes("connection")) {
+        errorDetails += ". Please check your SMTP host and port settings.";
+      }
+      
       return new Response(
         JSON.stringify({ 
-          error: "Failed to send email via SMTP", 
-          details: smtpError.message,
+          error: errorMessage, 
+          details: errorDetails,
           smtp_config: {
             host: SMTP_HOST,
             port: SMTP_PORT,
@@ -120,7 +160,10 @@ ${message}
     console.error("Error processing request:", error);
     
     return new Response(
-      JSON.stringify({ error: "Failed to process request", details: error.message }),
+      JSON.stringify({ 
+        error: "Failed to process request", 
+        details: error.message || "An unexpected error occurred during request processing."
+      }),
       { 
         status: 500, 
         headers: { ...corsHeaders, "Content-Type": "application/json" } 

@@ -35,6 +35,7 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [detailedError, setDetailedError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -55,6 +56,7 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitError('');
+    setDetailedError('');
     setSubmitSuccess(false);
     
     try {
@@ -70,6 +72,12 @@ const ContactForm = () => {
         if (error) {
           console.error('Error sending message via Supabase:', error);
           throw new Error(error.message || 'Failed to send email via Supabase function');
+        }
+        
+        if (data && data.error) {
+          console.error('Error returned from edge function:', data.error);
+          setDetailedError(data.details || 'The server encountered an issue processing your request.');
+          throw new Error(data.error || 'Failed to send email');
         }
         
         console.log('Supabase function response:', data);
@@ -101,13 +109,32 @@ const ContactForm = () => {
     }
   };
 
+  // Debug information component
+  const DebugInfo = () => (
+    <div className="mt-8 p-4 bg-gray-100 rounded-lg text-sm">
+      <h4 className="font-bold mb-2">Debug Information</h4>
+      <p className="mb-2">If you're having trouble sending messages, check the following:</p>
+      <ul className="list-disc pl-5 space-y-1">
+        <li>Supabase URL configured: {supabaseUrl ? 'Yes' : 'No'}</li>
+        <li>Supabase Anon Key configured: {supabaseAnonKey ? 'Yes' : 'No'}</li>
+        <li>Supabase client initialized: {supabase ? 'Yes' : 'No'}</li>
+      </ul>
+      {detailedError && (
+        <div className="mt-2 p-2 bg-red-50 border border-red-200 rounded">
+          <p className="font-semibold">Error details:</p>
+          <pre className="whitespace-pre-wrap text-xs mt-1">{detailedError}</pre>
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="lg:w-2/5">
-              <h2 className="section-title">Get in Touch</h2>
+              <h2 className="text-3xl font-bold text-tomodachi-black mb-6">Get in Touch</h2>
               <p className="text-gray-600 mb-8">
                 Have questions about our services or need assistance with your relocation to Japan? 
                 We're here to help! Fill out the form or email us directly.
@@ -234,6 +261,8 @@ const ContactForm = () => {
                     {!isSubmitting && <Send size={16} className="ml-2" />}
                   </Button>
                 </form>
+                
+                {(submitError || detailedError) && <DebugInfo />}
               </div>
             </div>
           </div>
