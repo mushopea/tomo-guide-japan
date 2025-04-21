@@ -369,14 +369,15 @@ const StepByStepGuide = () => {
               Download our free checklist. Built from real advice, expat experience, and local know-how.
             </p>
             <div className="text-center">
-              <button 
-                https://github.com/mushopea/tomo-guide-japan/blob/45ce074181a29b3ed7daeb3655254826caa0c523/Moving%20Guide%20PDF%20(1).pdf
-                onClick={(e) => e.preventDefault()}
+              <a
+                href="https://github.com/mushopea/tomo-guide-japan/blob/45ce074181a29b3ed7daeb3655254826caa0c523/Moving%20Guide%20PDF%20(1).pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 bg-tomodachi-red text-white rounded-md font-semibold shadow hover:bg-tomodachi-black transition-colors"
               >
                 <Download className="mr-2 h-5 w-5" />
                 Download Checklist
-              </button
-              https://github.com/mushopea/tomo-guide-japan/blob/45ce074181a29b3ed7daeb3655254826caa0c523/Moving%20Guide%20PDF%20(1).pdf>
+              </a>
             </div>
           </div>
         </div>
