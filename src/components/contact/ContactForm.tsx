@@ -6,14 +6,9 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Button } from "@/components/ui/button";
 import { createClient } from '@supabase/supabase-js';
 
-// Check for environment variables and provide fallbacks for development
+// Initialize Supabase client
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
-
-// Initialize Supabase client conditionally to prevent the "supabaseUrl is required" error
-const supabase = supabaseUrl && supabaseAnonKey 
-  ? createClient(supabaseUrl, supabaseAnonKey)
-  : null;
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -48,27 +43,44 @@ const ContactForm = () => {
     try {
       console.log('Form submitted:', formData);
       
-      // Check if Supabase client is initialized
-      if (!supabase) {
-        throw new Error('Supabase client is not initialized. Please check your environment variables.');
+      // If Supabase is configured, use it
+      if (supabaseUrl && supabaseAnonKey) {
+        const supabase = createClient(supabaseUrl, supabaseAnonKey);
+        
+        const { data, error } = await supabase.functions.invoke('send-contact-email', {
+          body: JSON.stringify(formData),
+        });
+        
+        if (error) {
+          console.error('Error sending message via Supabase:', error);
+          throw new Error(error.message);
+        }
+        
+        toast.success('Thank you for your message! We will get back to you soon.', {
+          duration: 5000,
+        });
+      } else {
+        // Fallback for when Supabase is not configured - direct fetch to the function URL
+        // This assumes the function is deployed and accessible via a public URL
+        const response = await fetch('https://contactyourtomodachi.vercel.app/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Failed to send message');
+        }
+        
+        toast.success('Thank you for your message! We will get back to you soon.', {
+          duration: 5000,
+        });
       }
       
-      // Call the Supabase Edge Function to send the email
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: JSON.stringify(formData),
-      });
-      
-      if (error) {
-        console.error('Error sending message:', error);
-        toast.error('There was a problem sending your message. Please try again.');
-        return;
-      }
-      
-      toast.success('Thank you for your message! We will get back to you soon.', {
-        duration: 5000,
-      });
-      
-      // Reset form
+      // Reset form after successful submission
       setFormData({
         name: '',
         email: '',
@@ -76,10 +88,11 @@ const ContactForm = () => {
         subject: '',
         message: ''
       });
-      
     } catch (error) {
       console.error('Error submitting form:', error);
-      toast.error('There was a problem sending your message. Please try again.');
+      toast.error('There was a problem sending your message. Please try again.', {
+        duration: 5000,
+      });
     } finally {
       setIsSubmitting(false);
     }

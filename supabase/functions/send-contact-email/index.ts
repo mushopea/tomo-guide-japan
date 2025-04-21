@@ -1,6 +1,5 @@
 
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.43.0";
 import { SmtpClient } from "https://deno.land/x/smtp@v0.7.0/mod.ts";
 
 const corsHeaders = {
@@ -28,26 +27,22 @@ serve(async (req) => {
       );
     }
     
-    // This should be replaced with an actual email sending solution
-    // For demonstration, we'll use a basic SMTP client
-    // In production, consider using a service like SendGrid, Mailgun, etc.
-    
-    // Create a connection to an SMTP server (you'll need to set up your own or use a service)
-    const client = new SmtpClient();
-    
-    // Connect to SMTP server - THESE VALUES NEED TO BE REPLACED with your actual email service
-    // For Gmail, you'd need an app password: https://support.google.com/accounts/answer/185833
-    // THESE CREDENTIALS SHOULD BE SET AS SUPABASE SECRETS!
+    // SMTP configuration
     const SMTP_USERNAME = Deno.env.get("SMTP_USERNAME") || "";
     const SMTP_PASSWORD = Deno.env.get("SMTP_PASSWORD") || "";
+    const SMTP_HOST = Deno.env.get("SMTP_HOST") || "smtp.gmail.com";
+    const SMTP_PORT = parseInt(Deno.env.get("SMTP_PORT") || "465");
     
     if (!SMTP_USERNAME || !SMTP_PASSWORD) {
       throw new Error("SMTP credentials not configured");
     }
     
+    // Create SMTP client and connect
+    const client = new SmtpClient();
+    
     await client.connectTLS({
-      hostname: "contactyourtomodachi@gmail.com", // Replace with your SMTP server
-      port: 465,
+      hostname: SMTP_HOST,
+      port: SMTP_PORT,
       username: SMTP_USERNAME,
       password: SMTP_PASSWORD,
     });
@@ -68,7 +63,7 @@ ${message}
     // Send email
     await client.send({
       from: SMTP_USERNAME,
-      to: "contactyourtomodachi@gmail.com",
+      to: "contactyourtomodachi@gmail.com", // Destination email hardcoded
       subject: `Contact Form: ${subject}`,
       content: emailContent,
     });
@@ -88,7 +83,7 @@ ${message}
     console.error("Error sending email:", error);
     
     return new Response(
-      JSON.stringify({ error: "Failed to send email" }),
+      JSON.stringify({ error: "Failed to send email", details: error.message }),
       { 
         status: 500, 
         headers: { ...corsHeaders, "Content-Type": "application/json" } 
