@@ -5,23 +5,9 @@ import { toast } from 'sonner';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
-import { createClient } from '@supabase/supabase-js';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-
-// Initialize Supabase client with proper error handling
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
-let supabase = null;
-
-// Only create the client if we have the required credentials
-if (supabaseUrl && supabaseAnonKey) {
-  try {
-    supabase = createClient(supabaseUrl, supabaseAnonKey);
-  } catch (error) {
-    console.error("Failed to initialize Supabase client:", error);
-  }
-}
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -62,42 +48,35 @@ const ContactForm = () => {
     try {
       console.log('Form submitted:', formData);
       
-      // If Supabase is configured, use it
-      if (supabase) {
-        console.log('Using Supabase edge function');
-        const { data, error } = await supabase.functions.invoke('send-contact-email', {
-          body: JSON.stringify(formData),
-        });
-        
-        if (error) {
-          console.error('Error sending message via Supabase:', error);
-          throw new Error(error.message || 'Failed to send email via Supabase function');
-        }
-        
-        if (data && data.error) {
-          console.error('Error returned from edge function:', data.error);
-          setDetailedError(data.details || 'The server encountered an issue processing your request.');
-          throw new Error(data.error || 'Failed to send email');
-        }
-        
-        console.log('Supabase function response:', data);
-        setSubmitSuccess(true);
-        toast.success('Thank you for your message! We will get back to you soon.', {
-          duration: 5000,
-        });
-        
-        // Reset form after successful submission
-        setFormData({
-          name: '',
-          email: '',
-          supportType: 'relocation',
-          subject: '',
-          message: ''
-        });
-      } else {
-        // If Supabase is not configured, show a helpful message
-        throw new Error('Email service not properly configured. Please set up Supabase and configure the email function.');
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData,
+      });
+      
+      if (error) {
+        console.error('Error sending message via Supabase:', error);
+        throw new Error(error.message || 'Failed to send email via Supabase function');
       }
+      
+      if (data && data.error) {
+        console.error('Error returned from edge function:', data.error);
+        setDetailedError(data.details || 'The server encountered an issue processing your request.');
+        throw new Error(data.error || 'Failed to send email');
+      }
+      
+      console.log('Supabase function response:', data);
+      setSubmitSuccess(true);
+      toast.success('Thank you for your message! We will get back to you soon.', {
+        duration: 5000,
+      });
+      
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        supportType: 'relocation',
+        subject: '',
+        message: ''
+      });
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitError(error.message || 'There was a problem sending your message. Please try again.');
@@ -115,9 +94,8 @@ const ContactForm = () => {
       <h4 className="font-bold mb-2">Debug Information</h4>
       <p className="mb-2">If you're having trouble sending messages, check the following:</p>
       <ul className="list-disc pl-5 space-y-1">
-        <li>Supabase URL configured: {supabaseUrl ? 'Yes' : 'No'}</li>
-        <li>Supabase Anon Key configured: {supabaseAnonKey ? 'Yes' : 'No'}</li>
-        <li>Supabase client initialized: {supabase ? 'Yes' : 'No'}</li>
+        <li>Supabase connected: {supabase ? 'Yes' : 'No'}</li>
+        <li>Edge function 'send-contact-email' called: Yes</li>
       </ul>
       {detailedError && (
         <div className="mt-2 p-2 bg-red-50 border border-red-200 rounded">

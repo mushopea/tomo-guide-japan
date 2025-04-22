@@ -57,8 +57,8 @@ serve(async (req) => {
     
     // SMTP configuration
     // Get environment variables with proper fallbacks
-    const SMTP_USERNAME = Deno.env.get("SMTP_USERNAME") || "";
-    const SMTP_PASSWORD = Deno.env.get("SMTP_PASSWORD") || "";
+    const SMTP_USERNAME = Deno.env.get("SMTP_USERNAME");
+    const SMTP_PASSWORD = Deno.env.get("SMTP_PASSWORD");
     const SMTP_HOST = Deno.env.get("SMTP_HOST") || "smtp.gmail.com";
     const SMTP_PORT = parseInt(Deno.env.get("SMTP_PORT") || "465");
     const DESTINATION_EMAIL = "contactyourtomodachi@gmail.com"; // Hardcoded destination email
@@ -67,7 +67,7 @@ serve(async (req) => {
       console.error("SMTP credentials not configured properly");
       return new Response(
         JSON.stringify({ 
-          error: "Email service not configured properly",
+          error: "Email service configuration missing",
           details: "The server is missing SMTP credentials. Please check SMTP_USERNAME and SMTP_PASSWORD in Supabase secrets."
         }),
         { 
@@ -78,6 +78,8 @@ serve(async (req) => {
     }
     
     console.log("Attempting to connect to SMTP server:", SMTP_HOST, SMTP_PORT);
+    console.log("Using username:", SMTP_USERNAME);
+    console.log("Password configured:", SMTP_PASSWORD ? "Yes" : "No");
     
     // Create SMTP client and connect
     const client = new SmtpClient();
@@ -90,7 +92,7 @@ serve(async (req) => {
         password: SMTP_PASSWORD,
       });
       
-      console.log("SMTP connection established");
+      console.log("SMTP connection established successfully");
       
       // Build email content
       const emailContent = `
@@ -106,20 +108,20 @@ ${message}
       `;
       
       // Send email
-      await client.send({
+      const sendResult = await client.send({
         from: SMTP_USERNAME,
         to: DESTINATION_EMAIL,
         subject: `Contact Form: ${subject}`,
         content: emailContent,
       });
       
-      console.log("Email sent successfully");
+      console.log("Email sent successfully:", sendResult);
       
       await client.close();
       
       // Return success response
       return new Response(
-        JSON.stringify({ success: true }),
+        JSON.stringify({ success: true, message: "Email sent successfully" }),
         { 
           status: 200, 
           headers: { ...corsHeaders, "Content-Type": "application/json" } 
@@ -134,9 +136,9 @@ ${message}
       
       // Provide more helpful error messages for common issues
       if (errorDetails.includes("authentication")) {
-        errorDetails += ". Please verify your SMTP username and password. If using Gmail, make sure you're using an App Password.";
+        errorDetails = "Authentication failed. Please verify your SMTP username and password. If using Gmail, make sure you're using an App Password.";
       } else if (errorDetails.includes("connection")) {
-        errorDetails += ". Please check your SMTP host and port settings.";
+        errorDetails = "Connection error. Please check your SMTP host and port settings.";
       }
       
       return new Response(
@@ -146,8 +148,8 @@ ${message}
           smtp_config: {
             host: SMTP_HOST,
             port: SMTP_PORT,
-            username_provided: SMTP_USERNAME ? "Yes" : "No",
-            password_provided: SMTP_PASSWORD ? "Yes" : "No"
+            username_provided: Boolean(SMTP_USERNAME),
+            password_provided: Boolean(SMTP_PASSWORD)
           }
         }),
         { 
