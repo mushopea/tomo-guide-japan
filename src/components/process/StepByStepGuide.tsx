@@ -366,7 +366,7 @@ const StepByStepGuide = () => {
           <div className="mt-16 py-10 bg-tomodachi-red bg-opacity-10 rounded-lg px-8">
             <h1 className="text-3xl font-bold text-tomodachi-black mb-4 text-center">Tomodachi Moving Checklist</h1>
             <p className="text-gray-600 mb-8 text-center">
-              <p><img src="/lovable-uploads/guidep.png"></p>
+              <img src="/lovable-uploads/guidep.png"><br></br><br></br>
               Download our free printable Moving to Japan checklist!
             </p>
             <div className="text-center">
