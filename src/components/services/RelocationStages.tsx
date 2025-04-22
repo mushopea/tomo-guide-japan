@@ -5,7 +5,7 @@ const services = [
   {
     title: "Full Relocation Support",
     subtitle: "Moving to Japan is a big step — we're here to support all of it, or just the parts that matter most to you.",
-    image: "/lovable-uploads/full service.avif",
+    image: "/lovable-uploads/fullservice.avif",
     features: [
       "Visa Support: Help with document prep and embassy application",
       "Arrival Welcome: Airport pickup and navigation to your stay",
@@ -22,7 +22,7 @@ const services = [
   {
     title: "One-Off Task",
     subtitle: "Flexible help for individual tasks — remote or in-person, at an affordable hourly rate. Examples:",
-    image: "/lovable-uploads/one task.png",
+    image: "/lovable-uploads/onetask.png",
     features: [
       "Ward Office Accompaniment: Help with ID and license registration",
       "Utility Setup: Arrange gas, water, electricity, and internet",
