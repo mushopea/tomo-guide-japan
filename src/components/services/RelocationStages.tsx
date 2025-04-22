@@ -5,7 +5,7 @@ const services = [
   {
     title: "Full Relocation Support",
     subtitle: "Moving to Japan is a big step — we're here to support all of it, or just the parts that matter most to you.",
-    image: "https://raw.githubusercontent.com/mushopea/tomo-guide-japan/refs/heads/main/public/lovable-uploads/full%20service.avif?token=GHSAT0AAAAAADCITHRFU5NECNXNPZGNQGWU2AHLDJA",
+    image: "/lovable-uploads/full service.avif",
     features: [
       "Visa Support: Help with document prep and embassy application",
       "Arrival Welcome: Airport pickup and navigation to your stay",
