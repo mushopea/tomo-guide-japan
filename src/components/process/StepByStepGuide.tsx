@@ -162,7 +162,7 @@ const movingGuideSteps = [
             <li><a href="https://www.shinseibank.com/english/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">Shinsei Bank</a></li>
           </ul>
         </div>
-        <p>These banks proved to offer the most English customer support and understanding of expats needs/concerns. <p><br></p>Bring passport, residence card, Japanese phone number, and proof of address.</p>
+        <p>These banks proved to offer the most English customer support and understanding of expats needs/concerns. <p></p><br></br>Bring passport, residence card, Japanese phone number, and proof of address.</p>
       </>
     )
   },
@@ -179,7 +179,7 @@ const movingGuideSteps = [
             <li><a href="https://www.eposcard.co.jp/international/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">EPOS Card</a></li>
           </ul>
         </div>
-        <p>Japanese credit card applications can be hard to pass for expats. Fill in the forms precisely. <p><br></p>Bring residence card, phone number, and income information.</p>
+        <p>Japanese credit card applications can be hard to pass for expats. Fill in the forms precisely. <p></p><br></br>Bring residence card, phone number, and income information.</p>
       </>
     )
   },
