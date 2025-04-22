@@ -115,7 +115,7 @@ const ContactForm = () => {
               <h2 className="text-3xl font-bold text-tomodachi-black mb-6">Get in Touch</h2>
               <p className="text-gray-600 mb-8">
                 Have questions about our services or need assistance with your relocation to Japan? 
-                We're here to help! Fill out the form or email us directly.
+                Consultation is free! Fill out the form or email us directly.
               </p>
               
               <div className="space-y-6">
