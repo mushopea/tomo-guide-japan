@@ -6,7 +6,7 @@ const serviceCards = [
     id: 1,
     title: 'Relocation Services',
     description: 'From visa to housing and bank setup, we\'ve got you covered.',
-    image: '/lovable-uploads/full service.avif',
+    image: '/lovable-uploads/fullservice.avif',
     chips: ['Full support', 'Customizable', 'Free Consult'],
     link: '/services'
   },
@@ -14,7 +14,7 @@ const serviceCards = [
     id: 2,
     title: 'One-off support',
     description: 'Specific tasks like bank setup, driving license conversion, customer service accompaniment, and more.',
-    image: '/lovable-uploads/one task.png',
+    image: '/lovable-uploads/onetask.png',
     chips: ['Affordable', 'No Packages'],
     link: '/services#one-off-support'
   }
@@ -32,7 +32,7 @@ const ServiceCategories = () => {
             <Link to={card.link} key={card.id} className="bg-white p-6 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
               <div className="mb-4 w-full h-48 rounded-lg overflow-hidden">
                 <img 
-                  src={card.id === 2 ? "/lovable-uploads/one task.png" : card.image} 
+                  src={card.id === 2 ? "/lovable-uploads/onetask.png" : card.image} 
                   alt={card.title}
                   className="w-full h-full object-cover"
                 />
