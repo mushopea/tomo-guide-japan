@@ -5,7 +5,7 @@ const services = [
   {
     title: "Full Relocation Support",
     subtitle: "Moving to Japan is a big step — we're here to support all of it, or just the parts that matter most to you.",
-    image: "https://images.unsplash.com/photo-1551322120-c697cf88fbdc",
+    image: "https://raw.githubusercontent.com/mushopea/tomo-guide-japan/refs/heads/main/public/lovable-uploads/full%20service.avif?token=GHSAT0AAAAAADCITHRFU5NECNXNPZGNQGWU2AHLDJA",
     features: [
       "Visa Support: Help with document prep and embassy application",
       "Arrival Welcome: Airport pickup and navigation to your stay",
@@ -22,7 +22,7 @@ const services = [
   {
     title: "One-Off Task",
     subtitle: "Flexible help for individual tasks — remote or in-person, at an affordable hourly rate. Examples:",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
+    image: "https://raw.githubusercontent.com/mushopea/tomo-guide-japan/refs/heads/main/public/lovable-uploads/one%20task.png?token=GHSAT0AAAAAADCITHREWHH3BTOMIFNIS7ZC2AHLFAQ",
     features: [
       "Ward Office Accompaniment: Help with ID and license registration",
       "Utility Setup: Arrange gas, water, electricity, and internet",
