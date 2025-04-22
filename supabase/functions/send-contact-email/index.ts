@@ -1,7 +1,8 @@
 
 // supabase functions deploy send-contact-email
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
-import { SmtpClient } from "https://deno.land/x/smtp@v0.7.0/mod.ts";
+// Import a different email library that's compatible with Deno
+import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -81,18 +82,21 @@ serve(async (req) => {
     console.log("Using username:", SMTP_USERNAME);
     console.log("Password configured:", SMTP_PASSWORD ? "Yes" : "No");
     
-    // Create SMTP client and connect
-    const client = new SmtpClient();
-    
-    try {
-      await client.connectTLS({
+    // Create SMTP client with the new library
+    const client = new SMTPClient({
+      connection: {
         hostname: SMTP_HOST,
         port: SMTP_PORT,
-        username: SMTP_USERNAME,
-        password: SMTP_PASSWORD,
-      });
-      
-      console.log("SMTP connection established successfully");
+        tls: true,
+        auth: {
+          username: SMTP_USERNAME,
+          password: SMTP_PASSWORD,
+        },
+      },
+    });
+    
+    try {
+      console.log("Attempting to send email");
       
       // Build email content
       const emailContent = `
@@ -107,7 +111,7 @@ Message:
 ${message}
       `;
       
-      // Send email
+      // Send email with the new library
       const sendResult = await client.send({
         from: SMTP_USERNAME,
         to: DESTINATION_EMAIL,
@@ -116,8 +120,6 @@ ${message}
       });
       
       console.log("Email sent successfully:", sendResult);
-      
-      await client.close();
       
       // Return success response
       return new Response(
