@@ -6,7 +6,7 @@ const serviceCards = [
     id: 1,
     title: 'Relocation Services',
     description: 'From visa to housing and bank setup, we\'ve got you covered.',
-    image: '/lovable-uploads/full service.avif',
+    image: 'https://raw.githubusercontent.com/mushopea/tomo-guide-japan/refs/heads/main/public/lovable-uploads/full%20service.avif?token=GHSAT0AAAAAADCITHRFU5NECNXNPZGNQGWU2AHLDJA',
     chips: ['Full support', 'Customizable', 'Free Consult'],
     link: '/services'
   },
@@ -14,7 +14,7 @@ const serviceCards = [
     id: 2,
     title: 'One-off support',
     description: 'Specific tasks like bank setup, driving license conversion, customer service accompaniment, and more.',
-    image: '/lovable-uploads/one task.png',
+    image: 'https://raw.githubusercontent.com/mushopea/tomo-guide-japan/refs/heads/main/public/lovable-uploads/one%20task.png?token=GHSAT0AAAAAADCITHREKX6GGSSHE37DB5DE2AHLCRA',
     chips: ['Affordable', 'No Packages'],
     link: '/services#one-off-support'
   }
