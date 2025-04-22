@@ -271,8 +271,8 @@ const StepByStepGuide = () => {
         <div className="max-w-4xl mx-auto">
           <div className="mb-12 rounded-lg overflow-hidden h-64">
             <img 
-              src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-              alt="Moving to Japan" 
+              src="/lovable-uploads/moving.avif" 
+              alt="Moving to Japan: A Relocation Guide" 
               className="w-full h-full object-cover object-center"
             />
           </div>
