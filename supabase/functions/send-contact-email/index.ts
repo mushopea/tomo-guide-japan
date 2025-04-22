@@ -57,8 +57,8 @@ serve(async (req) => {
     
     // SMTP configuration
     // Get environment variables with proper fallbacks
-    const SMTP_USERNAME = contactyourtomodachi@gmail.com("SMTP_USERNAME");
-    const SMTP_PASSWORD = nmbo yodc hknc cgjh("SMTP_PASSWORD");
+    const SMTP_USERNAME = Deno.env.get("SMTP_USERNAME");
+    const SMTP_PASSWORD = Deno.env.get("SMTP_PASSWORD");
     const SMTP_HOST = Deno.env.get("SMTP_HOST") || "smtp.gmail.com";
     const SMTP_PORT = parseInt(Deno.env.get("SMTP_PORT") || "465");
     const DESTINATION_EMAIL = "contactyourtomodachi@gmail.com"; // Hardcoded destination email
