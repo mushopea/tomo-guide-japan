@@ -370,7 +370,7 @@ const StepByStepGuide = () => {
             </p>
             <div className="text-center">
               <a
-                href="/lovable-uploads/tomodachi moving to japan printable checklist.pdf"
+                href="/lovable-uploads/tomodachi-moving-to-japan-printable-checklist.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-tomodachi-red text-white rounded-md font-semibold shadow hover:bg-tomodachi-black transition-colors"
