@@ -19,7 +19,7 @@ const movingGuideSteps = [
     content: (
       <>
         <p className="mb-4">
-          To move to Japan, you'll need a visa — the most common are a Work Visa (requires a job offer) or the new Digital Nomad Visa (for remote workers from select countries). Other common visas include a dependent/spouse visa and a student visa. If you're job hunting, check out:
+          To move to Japan, you'll need a visa — the most common are a <b>Work Visa</b> (requires a job offer) or the new <b>Digital Nomad Visa</b> (for remote workers from select countries). Other common visas include a dependent/spouse visa and a student visa. If you're job hunting, check out:
         </p>
         <ul className="mb-4 space-y-1 list-disc ml-6">
           <li><a href="https://jobs.gaijinpot.com/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">GaijinPot</a></li>
@@ -57,7 +57,7 @@ const movingGuideSteps = [
             <ul className="list-disc ml-6 space-y-1">
               <li>Get international ATM access</li>
               <li>Apply for a travel-friendly credit card</li>
-              <li>For money transfers, use Wise or OFX</li>
+              <li>For money transfers, people recommend Wise or OFX</li>
             </ul>
           </li>
           <li>
@@ -135,7 +135,7 @@ const movingGuideSteps = [
           You'll need a Japanese phone number to open a bank account or sign a lease.
         </p>
         <div className="mb-4">
-          <strong className="block mb-2">Friendly SIM providers:</strong>
+          <strong className="block mb-2">Foreigner friendly providers offering English support:</strong>
           <ul className="list-disc ml-6 space-y-1">
             <li><a href="https://www.sakuramobile.jp/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">Sakura Mobile</a></li>
             <li><a href="https://www.mobal.com/japan/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">Mobal</a></li>
@@ -173,7 +173,7 @@ const movingGuideSteps = [
     content: (
       <>
         <div className="mb-4">
-          <strong className="block mb-2">Recommended cards for newcomers:</strong>
+          <strong className="block mb-2">Recommended cards that are more foreigner friendly:</strong>
           <ul className="list-disc ml-6 space-y-1">
             <li><a href="https://www.rakuten-card.co.jp/e_card/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">Rakuten Card</a></li>
             <li><a href="https://www.eposcard.co.jp/international/" className="text-tomodachi-red hover:underline" target="_blank" rel="noopener noreferrer">EPOS Card</a></li>
