@@ -22,7 +22,7 @@ const services = [
   {
     title: "One-Off Task",
     subtitle: "Flexible help for individual tasks — remote or in-person, at an affordable hourly rate. Examples:",
-    image: "https://raw.githubusercontent.com/mushopea/tomo-guide-japan/refs/heads/main/public/lovable-uploads/one%20task.png?token=GHSAT0AAAAAADCITHREWHH3BTOMIFNIS7ZC2AHLFAQ",
+    image: "/lovable-uploads/one task.png",
     features: [
       "Ward Office Accompaniment: Help with ID and license registration",
       "Utility Setup: Arrange gas, water, electricity, and internet",
