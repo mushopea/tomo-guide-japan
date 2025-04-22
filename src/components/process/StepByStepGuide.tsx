@@ -371,7 +371,9 @@ const StepByStepGuide = () => {
               Download our free printable Moving to Japan checklist!
             </p>
 
-            <div className="text-center"><img src="/lovable-uploads/guidep.png"></div>
+            <p className="text-center">
+              <img src="/lovable-uploads/guidep.png"/>
+            </p>
             
               <div className="text-center">
               <a
