@@ -6,15 +6,15 @@ const serviceCards = [
     id: 1,
     title: 'Relocation Services',
     description: 'From visa to housing and bank setup, we\'ve got you covered.',
-    image: 'https://images.unsplash.com/photo-1551322120-c697cf88fbdc?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    image: '/lovable-uploads/one task.avif',
     chips: ['Full support', 'Customizable', 'Free Consult'],
     link: '/services'
   },
   {
     id: 2,
     title: 'One-off support',
-    description: 'Specific tasks like phone plans, city hall visits, and more.',
-    image: '/lovable-uploads/e415176f-e4fb-4327-9afc-d0db33b3e565.png',
+    description: 'Specific tasks like bank setup, driving license conversion, customer service accompaniment, and more.',
+    image: '/lovable-uploads/full service.avif',
     chips: ['Affordable', 'No Packages'],
     link: '/services#one-off-support'
   }
