@@ -21,10 +21,10 @@ const services = [
   },
   {
     title: "One-Off Task",
-    subtitle: "Flexible help for individual tasks — remote or in-person, billed at an affordable hourly rate.",
+    subtitle: "Flexible help for individual tasks — remote or in-person, at an affordable hourly rate. Examples:",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
     features: [
-      "Ward Office Support: Help with address registration, forms, and translation",
+      "Ward Office Accompaniment: Help with ID and license registration",
       "Utility Setup: Arrange gas, water, electricity, and internet",
       "Filling Forms: Assistance completing paperwork for housing, insurance, or banking",
       "Communication with Services: We'll call, translate, or email Japanese providers on your behalf",
