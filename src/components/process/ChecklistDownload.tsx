@@ -11,7 +11,7 @@ const ChecklistDownload: React.FC = () => {
         Download our free printable Moving to Japan checklist!
       </p>
 
-      <div className="mb-8">
+      <div className="mb-8 rounded-lg">
         <a href="/lovable-uploads/tomodachi-moving-to-japan-printable-checklist.pdf"><img 
           src="/lovable-uploads/guidep.png" 
           alt="Moving Checklist Preview"
