@@ -17,7 +17,7 @@ const MovingGuideSection = () => {
             <img 
               src="/lovable-uploads/guidep.png"
               alt="Moving Guide Preview"
-              className="h-auto max-h-[400px] object-contain mx-auto border border-gray-300 shadow-md rounded-lg"
+              className="h-auto max-h-[400px] object-contain mx-auto border border-gray-300/50 shadow-md rounded-2xl"
               loading="eager"
               onLoad={(e) => e.currentTarget.classList.add('loaded')}
             />
