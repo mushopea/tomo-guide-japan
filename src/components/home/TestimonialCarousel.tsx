@@ -83,7 +83,7 @@ const TestimonialCarousel = () => {
             >
               {testimonials.map((testimonial) => (
                 <div key={testimonial.id} className="min-w-full px-4">
-                  <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-300">
+                  <div className="bg-white p-8 rounded-2xl shadow-sm">
                     <p className="text-lg text-gray-600 italic mb-4">{testimonial.content}</p>
                     <div>
                       <p className="font-medium text-tomodachi-black">{testimonial.name}, {testimonial.city}</p>
