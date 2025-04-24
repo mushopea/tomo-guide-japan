@@ -62,9 +62,9 @@ const TestimonialCarousel = () => {
   }, [isAutoplay, activeIndex]);
 
   return (
-    <section className="py-16 bg-tomodachi-red bg-opacity-10">
+    <section className="py-12 bg-tomodachi-red bg-opacity-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <h2 className="text-3xl font-bold text-tomodachi-black">What Our Clients Say</h2>
           <div className="w-20 h-1 bg-tomodachi-red mx-auto mt-4"></div>
         </div>
@@ -77,12 +77,15 @@ const TestimonialCarousel = () => {
             onTouchStart={pauseAutoplay}
             onTouchEnd={resumeAutoplay}
           >
-            <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
+            <div 
+              className="flex transition-transform duration-500 ease-in-out" 
+              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+            >
               {testimonials.map((testimonial) => (
                 <div key={testimonial.id} className="min-w-full px-4">
-                  <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
-                    <p className="text-lg text-gray-600 italic mb-6">"{testimonial.content}"</p>
-                    <div className="text-right">
+                  <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-300">
+                    <p className="text-lg text-gray-600 italic mb-4">{testimonial.content}</p>
+                    <div>
                       <p className="font-medium text-tomodachi-black">{testimonial.name}, {testimonial.city}</p>
                     </div>
                   </div>
@@ -105,7 +108,7 @@ const TestimonialCarousel = () => {
             <ChevronRight size={20} />
           </button>
           
-          <div className="flex justify-center mt-6">
+          <div className="flex justify-center mt-4">
             {testimonials.map((_, index) => (
               <button
                 key={index}

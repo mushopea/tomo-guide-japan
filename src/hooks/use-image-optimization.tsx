@@ -3,28 +3,29 @@ import { useEffect } from 'react';
 
 export function useImageOptimization() {
   useEffect(() => {
-    // Create intersection observer to load images as they come into view
     const imgObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const img = entry.target as HTMLImageElement;
-          const dataSrc = img.getAttribute('data-src');
-          
-          if (dataSrc) {
-            img.src = dataSrc;
-            img.removeAttribute('data-src');
+          // Pre-load the image
+          if (img.dataset.src) {
+            const preloadImg = new Image();
+            preloadImg.src = img.dataset.src;
+            preloadImg.onload = () => {
+              img.src = img.dataset.src!;
+              img.removeAttribute('data-src');
+              img.classList.add('loaded');
+            };
           }
-          
-          img.classList.add('loaded');
           imgObserver.unobserve(img);
         }
       });
     }, {
-      rootMargin: '100px' // Start loading images when they're 100px from viewport
+      rootMargin: '50px 0px',
+      threshold: 0.1
     });
 
-    // Observe all images with 'data-src' attribute or that aren't loaded yet
-    const images = document.querySelectorAll('img:not(.loaded)');
+    const images = document.querySelectorAll('img[data-src]');
     images.forEach(img => imgObserver.observe(img));
 
     return () => {

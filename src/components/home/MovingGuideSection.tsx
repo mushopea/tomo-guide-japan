@@ -13,15 +13,15 @@ const MovingGuideSection = () => {
             Your step-by-step resource for relocation to Japan — available as a web guide and printable checklist.
           </p>
           
-          <div className="mb-8 max-h-[400px] flex justify-center">
+          <Link to="/process" className="block mb-8 max-h-[400px]">
             <img 
               src="/lovable-uploads/guidep.png"
               alt="Moving Guide Preview"
-              className="h-auto max-h-[400px] object-contain"
-              loading="lazy" 
+              className="h-auto max-h-[400px] object-contain mx-auto border border-gray-300 shadow-md rounded-lg"
+              loading="eager"
               onLoad={(e) => e.currentTarget.classList.add('loaded')}
             />
-          </div>
+          </Link>
           
           <Link 
             to="/process" 
