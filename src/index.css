@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -31,8 +31,8 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 80%;
-    --input: 0 0% 80%;
+    --border: 0 0% 75%; /* Darker border color */
+    --input: 0 0% 75%; /* Matching input border */
     --ring: 353 85% 57%;
 
     --radius: 0.5rem;
@@ -48,6 +48,15 @@
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-bold;
+  }
+
+  /* Add image loading optimization */
+  img {
+    @apply opacity-0 transition-opacity duration-300 ease-in;
+  }
+
+  img.loaded {
+    @apply opacity-100;
   }
 }
 
@@ -66,6 +75,11 @@
   
   .section-title::after {
     @apply content-[''] absolute left-0 -bottom-2 w-12 h-1 bg-tomodachi-red;
+  }
+
+  /* Helper text for radio options */
+  .radio-helper-text {
+    @apply mt-2 ml-6 text-sm text-gray-600 bg-gray-50 p-2 rounded border border-gray-200;
   }
 }
 

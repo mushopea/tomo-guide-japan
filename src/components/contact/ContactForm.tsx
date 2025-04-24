@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Mail, Send } from 'lucide-react';
 import { toast } from 'sonner';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -22,6 +22,26 @@ const ContactForm = () => {
   const [submitError, setSubmitError] = useState('');
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [detailedError, setDetailedError] = useState('');
+
+  // Image optimization
+  useEffect(() => {
+    const imgObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target as HTMLImageElement;
+          img.classList.add('loaded');
+          imgObserver.unobserve(img);
+        }
+      });
+    });
+
+    const images = document.querySelectorAll('img');
+    images.forEach(img => imgObserver.observe(img));
+
+    return () => {
+      images.forEach(img => imgObserver.unobserve(img));
+    };
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -196,6 +216,14 @@ const ContactForm = () => {
                         <RadioGroupItem value="relocation" id="relocation" />
                         <label htmlFor="relocation">Relocation support</label>
                       </div>
+                      {formData.supportType === 'relocation' && (
+                        <div className="radio-helper-text">
+                          Let us know:<br />
+                          1) Who you're moving with (family and pets)<br />
+                          2) Your work and visa situation<br />
+                          3) When you plan to move
+                        </div>
+                      )}
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="one-off" id="one-off" />
                         <label htmlFor="one-off">One-off task support</label>
@@ -225,7 +253,7 @@ const ContactForm = () => {
                       onChange={handleChange}
                       rows={5}
                       required
-                      placeholder="Tell us about your request. If you are relocating, let us know: &#10;* Are you moving alone, with a partner, or with family and pets?&#10;* What's your work or visa situation?&#10;* When are you planning to move?&#10;* What kind of help do you need?"
+                      placeholder="Tell us about your request - consultation is free."
                       className="w-full"
                     />
                   </div>

@@ -29,9 +29,11 @@ const Tomopon = () => {
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-16">
           <div className="md:w-1/3">
             <img
-              src="/lovable-uploads/c8e585f7-90f1-4a7a-bcc1-ae0d880ac032.png"
+              src="/lovable-uploads/267a8a3a-e83a-436a-bc1c-c371657e3cf0.png"
               alt="Tomopon Mascot"
               className="w-64 h-64 object-contain mx-auto"
+              loading="lazy"
+              onLoad={(e) => e.currentTarget.classList.add('loaded')}
             />
           </div>
           <div className="md:w-2/3 max-w-lg">
@@ -50,6 +52,8 @@ const Tomopon = () => {
                   src={hobby.image} 
                   alt={hobby.title}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  onLoad={(e) => e.currentTarget.classList.add('loaded')}
                 />
               </div>
               <CardContent className="p-4">

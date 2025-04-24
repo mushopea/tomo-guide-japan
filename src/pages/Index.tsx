@@ -5,6 +5,7 @@ import HeroSection from '../components/home/HeroSection';
 import TestimonialCarousel from '../components/home/TestimonialCarousel';
 import ServiceCategories from '../components/home/ServiceCategories';
 import ContactCTA from '../components/home/ContactCTA';
+import MovingGuideSection from '../components/home/MovingGuideSection';
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
         <HeroSection />
         <ServiceCategories />
         <TestimonialCarousel />
+        <MovingGuideSection />
         <ContactCTA />
       </main>
       <Footer />

@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
@@ -26,12 +27,14 @@ const HeroSection = () => {
               </Link>
             </div>
           </div>
-          <div className="w-1/3 md:w-1/2 flex justify-center">
-            <div className="relative w-full h-48 md:w-80 md:h-80">
+          <div className="w-full md:w-1/2 flex justify-center">
+            <div className="relative w-full h-64 md:h-[400px]">
               <img
-                src="/lovable-uploads/c8e585f7-90f1-4a7a-bcc1-ae0d880ac032.png"
+                src="/lovable-uploads/c77114e1-b9fc-40e2-81e5-3606494aa5cd.png"
                 alt="Tomodachi Mascot"
                 className="w-full h-full object-contain"
+                loading="eager" 
+                onLoad={(e) => e.currentTarget.classList.add('loaded')}
               />
             </div>
           </div>

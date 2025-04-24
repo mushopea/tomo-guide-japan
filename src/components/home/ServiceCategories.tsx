@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
@@ -22,11 +23,8 @@ const serviceCards = [
 
 const ServiceCategories = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-8 md:pt-6 md:pb-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-        </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {serviceCards.map((card) => (
             <Link to={card.link} key={card.id} className="bg-white p-6 rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
@@ -35,6 +33,8 @@ const ServiceCategories = () => {
                   src={card.id === 2 ? "/lovable-uploads/onetask.png" : card.image} 
                   alt={card.title}
                   className="w-full h-full object-cover"
+                  loading="lazy" 
+                  onLoad={(e) => e.currentTarget.classList.add('loaded')}
                 />
               </div>
               <h3 className="text-xl font-bold text-tomodachi-black mb-2">{card.title}</h3>

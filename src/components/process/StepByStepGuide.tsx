@@ -1,20 +1,25 @@
-
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FileText, Home, CreditCard, Globe, School, Users, Check, ExternalLink, Download } from 'lucide-react';
 
-// App icons
-const appIcons = {
-  LINE:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/2048px-LINE_logo.svg.png",
-  PayPay:"https://play-lh.googleusercontent.com/AieC1ypSSh_2rctvrNtVggyFRP9cNtvnEIPkVmzZGFlhN8bNdHCl3GZbxK7O8vCe7A",
-  Suica:"https://img.icons8.com/color/512/suica.png",
-  PASMO: "https://res.cloudinary.com/teepublic/image/private/s--UfOM8b_B--/c_crop,x_10,y_10/c_fit,h_1109/c_crop,g_north_west,h_1260,w_1050,x_-64,y_-76/co_rgb:ffffff,e_colorize,u_Misc:One%20Pixel%20Gray/c_scale,g_north_west,h_1260,w_1050/fl_layer_apply,g_north_west,x_-64,y_-76/bo_0px_solid_white/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:51/co_ffffff,e_outline:inner_fill:51/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_auto:good:420,w_630/v1581718091/production/designs/7983292_1.jpg",
-  GoogleTranslate: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/1024px-Google_Translate_logo.svg.png",
-  Mercari: "https://o.qoo-img.com/ggpht/r3ej9chUEQ8p7pM0XN79WcTePSAjRaJaRvKYyyvjwGGQlFkZgwaNfuIVomWG8CNE80Q"
-};
+import { StepData } from './types';
+import TableOfContents from './TableOfContents';
+import StepsSection from './StepsSection';
+import ChecklistDownload from './ChecklistDownload';
 
 const StepByStepGuide = () => {
-  // --- MOVE THIS ARRAY INSIDE THE COMPONENT SCOPE ---
-  const movingGuideSteps = [
+  // App icons
+  const appIcons = {
+    LINE: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/2048px-LINE_logo.svg.png",
+    PayPay: "https://play-lh.googleusercontent.com/AieC1ypSSh_2rctvrNtVggyFRP9cNtvnEIPkVmzZGFlhN8bNdHCl3GZbxK7O8vCe7A",
+    Suica: "https://img.icons8.com/color/512/suica.png",
+    PASMO: "https://res.cloudinary.com/teepublic/image/private/s--UfOM8b_B--/c_crop,x_10,y_10/c_fit,h_1109/c_crop,g_north_west,h_1260,w_1050,x_-64,y_-76/co_rgb:ffffff,e_colorize,u_Misc:One%20Pixel%20Gray/c_scale,g_north_west,h_1260,w_1050/fl_layer_apply,g_north_west,x_-64,y_-76/bo_0px_solid_white/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:51/co_ffffff,e_outline:inner_fill:51/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_auto:good:420,w_630/v1581718091/production/designs/7983292_1.jpg",
+    GoogleTranslate: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/1024px-Google_Translate_logo.svg.png",
+    Mercari: "https://o.qoo-img.com/ggpht/r3ej9chUEQ8p7pM0XN79WcTePSAjRaJaRvKYyyvjwGGQlFkZgwaNfuIVomWG8CNE80Q"
+  };
+
+  // Define steps data
+  const movingGuideSteps: StepData[] = [
     {
       id: "visa",
       category: "BEFORE ARRIVAL",
@@ -253,7 +258,8 @@ const StepByStepGuide = () => {
     }
   ];
 
-  const scrollToSection = (id) => {
+  // Scroll to section function
+  const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       const headerOffset = 100;
@@ -267,6 +273,29 @@ const StepByStepGuide = () => {
     }
   };
 
+  // Lazy load images as they come into viewport
+  useEffect(() => {
+    const imgObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target as HTMLImageElement;
+          img.classList.add('loaded');
+          imgObserver.unobserve(img);
+        }
+      });
+    });
+
+    const images = document.querySelectorAll('img');
+    images.forEach(img => imgObserver.observe(img));
+
+    return () => {
+      images.forEach(img => imgObserver.unobserve(img));
+    };
+  }, []);
+
+  const beforeArrivalSteps = movingGuideSteps.filter(step => step.category === "BEFORE ARRIVAL");
+  const afterArrivalSteps = movingGuideSteps.filter(step => step.category === "AFTER ARRIVAL");
+
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -276,121 +305,28 @@ const StepByStepGuide = () => {
               src="/lovable-uploads/moving.avif" 
               alt="Moving to Japan: A Relocation Guide" 
               className="w-full h-full object-cover object-center"
+              loading="eager" 
+              onLoad={(e) => e.currentTarget.classList.add('loaded')}
             />
           </div>
 
-          <div className="mb-16 p-6 border border-gray-200 rounded-lg bg-gray-50">
-            <h3 className="text-xl font-bold mb-4 text-tomodachi-black">Table of Contents</h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-bold text-gray-700 mb-2">BEFORE ARRIVAL</h4>
-                <ul className="space-y-2">
-                  {movingGuideSteps.filter(step => step.category === "BEFORE ARRIVAL").map((step, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="mr-2 font-medium">{index + 1}.</span>
-                      <button 
-                        onClick={() => scrollToSection(step.id)}
-                        className="text-tomodachi-red hover:underline text-left"
-                      >
-                        {step.title}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-bold text-gray-700 mb-2">AFTER ARRIVAL</h4>
-                <ul className="space-y-2">
-                  {movingGuideSteps.filter(step => step.category === "AFTER ARRIVAL").map((step, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="mr-2 font-medium">{index + 5}.</span>
-                      <button 
-                        onClick={() => scrollToSection(step.id)}
-                        className="text-tomodachi-red hover:underline text-left"
-                      >
-                        {step.title}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+          <TableOfContents steps={movingGuideSteps} onScrollToSection={scrollToSection} />
           
           <div className="space-y-16">
-            <div>
-              <h3 className="text-xl font-bold text-tomodachi-black mb-8">BEFORE YOU ARRIVE IN JAPAN</h3>
-              <div className="relative">
-                <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gray-200"></div>
-                {movingGuideSteps.filter(step => step.category === "BEFORE ARRIVAL").map((step, index) => (
-                  <div key={index} id={step.id} className="mb-12 relative">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-tomodachi-red text-white flex items-center justify-center font-bold text-lg z-10 relative  border-4 ">
-                        {index + 1}
-                      </div>
-                      <div className="flex-grow">
-                        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-                          <h4 className="text-xl font-bold text-tomodachi-black mb-4">{step.title}</h4>
-                          {step.content}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <StepsSection 
+              title="BEFORE YOU ARRIVE IN JAPAN"
+              steps={beforeArrivalSteps}
+            />
             
-            <div>
-              <h3 className="text-xl font-bold text-tomodachi-black mb-8">WHEN YOU ARRIVE IN JAPAN</h3>
-              <div className="relative">
-                <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gray-200"></div>
-                {movingGuideSteps.filter(step => step.category === "AFTER ARRIVAL").map((step, index) => (
-                  <div key={index} id={step.id} className="mb-12 relative">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-tomodachi-red text-white flex items-center justify-center font-bold text-lg z-10 relative  border-4 ">
-                        {index + 5}
-                      </div>
-                      <div className="flex-grow">
-                        <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-                          <h4 className="text-xl font-bold text-tomodachi-black mb-4">{step.title}</h4>
-                          {step.content}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <StepsSection 
+              title="WHEN YOU ARRIVE IN JAPAN"
+              steps={afterArrivalSteps}
+              startIndex={beforeArrivalSteps.length + 1}
+            />
           </div>
           
-          <div className="mt-16 py-10 bg-tomodachi-red bg-opacity-10 rounded-lg px-8">
-            
-            <h1 className="text-3xl font-bold text-tomodachi-black mb-4 text-center">Tomodachi Moving Checklist</h1>
-            
-            <p className="text-gray-600 mb-8 text-center">
-              Download our free printable Moving to Japan checklist!
-            </p>
-
-            <div className="text-center"><img src="/lovable-uploads/guidep.png"/></div>
-            
-            <div className="text-center">
-              <a
-                href="/lovable-uploads/tomodachi-moving-to-japan-printable-checklist.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-tomodachi-red text-white rounded-md font-semibold shadow hover:bg-tomodachi-black transition-colors"
-              >
-                <Download className="mr-2 h-5 w-5" />
-                Download Checklist
-              </a>
-            </div>
-              
-          </div>
-            
+          <ChecklistDownload />
         </div>
-          
       </div>
     </section>
   );
