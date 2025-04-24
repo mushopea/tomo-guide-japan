@@ -26,7 +26,7 @@ const ServiceCategories = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {serviceCards.map((card) => (
-            <Link to={card.link} key={card.id} className="bg-white p-6 rounded-lg border border-gray-300 hover:shadow-md transition-shadow">
+            <Link to={card.link} key={card.id} className="bg-white p-6 rounded-lg border border-gray-300/50 hover:shadow-md transition-shadow">
               <div className="mb-4 w-full h-48 rounded-lg overflow-hidden">
                 <img 
                   src={card.id === 2 ? "/lovable-uploads/onetask.png" : card.image} 
