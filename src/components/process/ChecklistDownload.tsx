@@ -12,13 +12,13 @@ const ChecklistDownload: React.FC = () => {
       </p>
 
       <div className="mb-8">
-        <img 
+        <a href="/lovable-uploads/tomodachi-moving-to-japan-printable-checklist.pdf"><img 
           src="/lovable-uploads/guidep.png" 
           alt="Moving Checklist Preview"
           className="mx-auto max-h-[400px]"
           loading="lazy"
           onLoad={(e) => e.currentTarget.classList.add('loaded')}
-        />
+        /></a>
       </div>
       
       <div>
