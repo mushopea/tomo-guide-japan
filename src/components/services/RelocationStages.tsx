@@ -43,8 +43,10 @@ const RelocationStages = () => {
               <div className="h-48 rounded-lg overflow-hidden mb-6">
                 <img 
                   src={service.image} 
-                  alt={service.title}
+                  alt={`${service.title} illustration`}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  onLoad={(e) => e.currentTarget.classList.add('loaded')}
                 />
               </div>
               <h3 className="text-xl font-bold text-tomodachi-black mb-2">{service.title}</h3>

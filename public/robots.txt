@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tomodachi.lovable.dev/sitemap.xml
+Sitemap: https://yourtomodachi.com/sitemap.xml
