@@ -13,7 +13,7 @@ interface SeoProps {
 export const getSiteMetadata = (props: SeoProps = {}) => {
   const defaultTitle = "Tomodachi | Relocation to Japan & One-Off Task Support";
   const defaultDescription = "Friendly relocation support and one-off task help for individuals, families, and businesses moving to Japan.";
-  const baseUrl = "https://tomodachi.lovable.dev";
+  const baseUrl = "https://yourtomodachi.com/";
   
   // Define page-specific metadata
   const pageMetadata: Record<PageType, {title: string, description: string, path: string}> = {
