@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { supabase } from "@/integrations/supabase/client";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +20,6 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [detailedError, setDetailedError] = useState('');
 
   // Image optimization
   useEffect(() => {
@@ -62,28 +60,24 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitError('');
-    setDetailedError('');
     setSubmitSuccess(false);
     
     try {
-      console.log('Form submitted:', formData);
+      const formElement = e.target as HTMLFormElement;
+      const formData = new FormData(formElement);
       
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+      const response = await fetch('https://formcarry.com/s/z2omJxqMEf0', {
+        method: 'POST',
         body: formData,
+        headers: {
+          'Accept': 'application/json',
+        },
       });
       
-      if (error) {
-        console.error('Error sending message via Supabase:', error);
-        throw new Error(error.message || 'Failed to send email via Supabase function');
+      if (!response.ok) {
+        throw new Error('There was a problem sending your message. Please try again.');
       }
       
-      if (data && data.error) {
-        console.error('Error returned from edge function:', data.error);
-        setDetailedError(data.details || 'The server encountered an issue processing your request.');
-        throw new Error(data.error || 'Failed to send email');
-      }
-      
-      console.log('Supabase function response:', data);
       setSubmitSuccess(true);
       toast.success('Thank you for your message! We will get back to you soon.', {
         duration: 5000,
@@ -97,6 +91,7 @@ const ContactForm = () => {
         subject: '',
         message: ''
       });
+      formElement.reset();
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitError(error.message || 'There was a problem sending your message. Please try again.');
@@ -107,24 +102,6 @@ const ContactForm = () => {
       setIsSubmitting(false);
     }
   };
-
-  // Debug information component
-  const DebugInfo = () => (
-    <div className="mt-8 p-4 bg-gray-100 rounded-lg text-sm">
-      <h4 className="font-bold mb-2">Debug Information</h4>
-      <p className="mb-2">If you're having trouble sending messages, check the following:</p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>Supabase connected: {supabase ? 'Yes' : 'No'}</li>
-        <li>Edge function 'send-contact-email' called: Yes</li>
-      </ul>
-      {detailedError && (
-        <div className="mt-2 p-2 bg-red-50 border border-red-200 rounded">
-          <p className="font-semibold">Error details:</p>
-          <pre className="whitespace-pre-wrap text-xs mt-1">{detailedError}</pre>
-        </div>
-      )}
-    </div>
-  );
 
   return (
     <section className="py-16 bg-white">
@@ -154,7 +131,7 @@ const ContactForm = () => {
             </div>
             
             <div className="lg:w-3/5">
-              <div className="bg-white border border-gray-100 rounded-lg p-8">
+              <div className="bg-white border border-gray-300 rounded-lg p-8">
                 <h3 className="text-2xl font-bold text-tomodachi-black mb-6">Send Us a Message</h3>
                 
                 {submitError && (
@@ -175,7 +152,12 @@ const ContactForm = () => {
                   </Alert>
                 )}
                 
-                <form onSubmit={handleSubmit}>
+                <form 
+                  onSubmit={handleSubmit}
+                  action="https://formcarry.com/s/z2omJxqMEf0"
+                  method="POST"
+                  acceptCharset="UTF-8"
+                >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Your Name *</label>
@@ -211,6 +193,7 @@ const ContactForm = () => {
                       value={formData.supportType}
                       onValueChange={handleRadioChange}
                       className="flex flex-col space-y-2"
+                      name="supportType"
                     >
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="relocation" id="relocation" />
@@ -258,6 +241,15 @@ const ContactForm = () => {
                     />
                   </div>
                   
+                  {/* Hidden honeypot field for spam protection */}
+                  <input 
+                    type="text" 
+                    name="_gotcha" 
+                    style={{ display: 'none' }} 
+                    tabIndex={-1} 
+                    autoComplete="off" 
+                  />
+                  
                   <Button 
                     type="submit" 
                     className="bg-tomodachi-red hover:bg-tomodachi-red/90 text-white flex items-center"
@@ -267,8 +259,6 @@ const ContactForm = () => {
                     {!isSubmitting && <Send size={16} className="ml-2" />}
                   </Button>
                 </form>
-                
-                {(submitError || detailedError) && <DebugInfo />}
               </div>
             </div>
           </div>
