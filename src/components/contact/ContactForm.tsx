@@ -94,7 +94,7 @@ const ContactForm = () => {
       formElement.reset();
     } catch (error) {
       console.error('Error submitting form:', error);
-      setSubmitError(error.message || 'There was a problem sending your message. Please try again.');
+      setSubmitError(error instanceof Error ? error.message : 'There was a problem sending your message. Please try again.');
       toast.error('There was a problem sending your message. Please try again.', {
         duration: 5000,
       });
@@ -153,10 +153,10 @@ const ContactForm = () => {
                 )}
                 
                 <form 
-                  onSubmit={handleSubmit}
                   action="https://formcarry.com/s/z2omJxqMEf0"
                   method="POST"
                   acceptCharset="UTF-8"
+                  onSubmit={handleSubmit}
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>

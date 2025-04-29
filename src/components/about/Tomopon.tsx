@@ -46,7 +46,7 @@ const Tomopon = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {hobbies.map((hobby, index) => (
-            <Card key={index} className="overflow-hidden">
+            <div key={index} className="overflow-hidden shadow-sm rounded-lg">
               <div className="w-full h-48 relative">
                 <img 
                   src={hobby.image} 
@@ -56,10 +56,10 @@ const Tomopon = () => {
                   onLoad={(e) => e.currentTarget.classList.add('loaded')}
                 />
               </div>
-              <CardContent className="p-4">
+              <div className="p-4">
                 <h3 className="text-lg font-medium text-tomodachi-black text-center">{hobby.title}</h3>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
       </div>
