@@ -1,7 +1,6 @@
 
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
-import AboutHero from '../components/about/AboutHero';
 import OurStory from '../components/about/OurStory';
 import TestimonialCarousel from '../components/home/TestimonialCarousel';
 import OurValues from '../components/about/OurValues';
@@ -12,7 +11,6 @@ const About = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">
-        <AboutHero />
         <OurStory />
         <TestimonialCarousel />
         <OurValues />

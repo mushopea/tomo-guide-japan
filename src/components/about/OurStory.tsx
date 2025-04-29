@@ -1,4 +1,9 @@
+
+import { useImageOptimization } from "../../hooks/use-image-optimization";
+
 const OurStory = () => {
+  useImageOptimization();
+  
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,7 +24,9 @@ const OurStory = () => {
                   <img 
                     src="/lovable-uploads/c3e7aa9a-4a8c-4e9b-921a-b0a6e1e3e387.png" 
                     alt="About Tomodachi" 
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain opacity-100"
+                    loading="lazy"
+                    onLoad={(e) => e.currentTarget.classList.add('loaded')}
                   />
                 </div>
               </div>
