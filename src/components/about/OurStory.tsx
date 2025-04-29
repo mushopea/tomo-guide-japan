@@ -23,7 +23,7 @@ const OurStory = () => {
                 <div className="w-full h-64 flex items-center justify-center">
                   <img 
                     src="/lovable-uploads/c3e7aa9a-4a8c-4e9b-921a-b0a6e1e3e387.png" 
-                    alt="About Tomodachi" 
+                    alt="Trent, founder of Tomodachi relocation services" 
                     className="w-full h-full object-contain opacity-100"
                     loading="lazy"
                     onLoad={(e) => e.currentTarget.classList.add('loaded')}

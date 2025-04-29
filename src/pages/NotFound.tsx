@@ -1,10 +1,15 @@
+
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { injectSEOMetaTags } from '../utils/seo';
 
 const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
+    // Inject SEO meta tags for 404 page
+    injectSEOMetaTags('notFound');
+    
     console.error(
       "404 Error: User attempted to access non-existent route:",
       location.pathname
